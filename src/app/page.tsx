@@ -1,37 +1,57 @@
+import Image from "next/image";
 import Link from "next/link";
+import { Card, CardContent, CardFooter } from "~/components/ui/card";
+import { products } from "~/data/products";
+import { tags } from "~/data/tags";
 
 export default function HomePage() {
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-			<div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-				<h1 className="font-extrabold text-5xl text-white tracking-tight sm:text-[5rem]">
-					Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-				</h1>
-				<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-					<Link
-						className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-						href="https://create.t3.gg/en/usage/first-steps"
-						target="_blank"
-					>
-						<h3 className="font-bold text-2xl">First Steps →</h3>
-						<div className="text-lg">
-							Just the basics - Everything you need to know to set up your
-							database and authentication.
-						</div>
-					</Link>
-					<Link
-						className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-						href="https://create.t3.gg/en/introduction"
-						target="_blank"
-					>
-						<h3 className="font-bold text-2xl">Documentation →</h3>
-						<div className="text-lg">
-							Learn more about Create T3 App, the libraries it uses, and how to
-							deploy it.
-						</div>
-					</Link>
-				</div>
-			</div>
-		</main>
+		<div className="flex flex-col bg-slate-100 text-slate-800">
+			<main>
+				<section className="px-6 pt-32 pb-16 md:pt-48 lg:px-24 xl:px-48">
+					<h1 className="h1">
+						Fullstack engineer
+						<br /> + designer
+					</h1>
+				</section>
+				<section className="flex flex-col gap-8 px-6 py-16 md:py-48 lg:px-24 xl:px-48">
+					<h2 className="h2 w-full text-center">My Latest Projects</h2>
+					<div className="flex flex-col gap-4">
+						{products.map((product, index) => {
+							if (index >= 3) {
+								return null;
+							}
+
+							return (
+								<Link href={product.links[0]?.href ?? "/"} key={product.id}>
+									<Card>
+										<CardContent className="flex flex-col gap-4">
+											<Image
+												src={product.image.href}
+												alt={product.image.alt ?? ""}
+												className="rounded-lg"
+												width={1920}
+												height={1080}
+											/>
+										</CardContent>
+										<CardFooter>
+											<div className="flex flex-col">
+												<h3 className="h3">{product.title}</h3>
+												{product.tags.length > 0 && (
+													<p className="text-sm">
+														{tags[product.tags[0] ?? ""]?.title} ·{" "}
+														{tags[product.tags[1] ?? ""]?.title}
+													</p>
+												)}
+											</div>
+										</CardFooter>
+									</Card>
+								</Link>
+							);
+						})}
+					</div>
+				</section>
+			</main>
+		</div>
 	);
 }
