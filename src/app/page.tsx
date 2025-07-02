@@ -16,7 +16,7 @@ export default function HomePage() {
 				</section>
 				<section className="flex flex-col gap-8 px-6 py-16 md:py-48 lg:px-24 xl:px-48">
 					<h2 className="h2 w-full text-center">My Latest Projects</h2>
-					<div className="flex flex-col gap-4">
+					<div className="flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3">
 						{products.map((product, index) => {
 							if (index >= 3) {
 								return null;
