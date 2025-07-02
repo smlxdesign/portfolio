@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "~/components/sections/hero";
+import { Heading } from "~/components/typography/heading";
 import { Card, CardContent, CardFooter } from "~/components/ui/card";
 import { products } from "~/data/products";
 import { tags } from "~/data/tags";
+import { Subheading } from "~/components/typography/subheading";
 
 export default function HomePage() {
 	return (
@@ -14,7 +16,7 @@ export default function HomePage() {
 					<br /> + designer
 				</Hero>
 				<section className="flex flex-col gap-8 px-6 py-16 md:py-48 lg:px-24 xl:px-48">
-					<h2 className="h2 w-full text-center">My Latest Projects</h2>
+					<Heading className="w-full text-center">My Latest Projects</Heading>
 					<div className="flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3">
 						{products.map((product, index) => {
 							if (index >= 3) {
@@ -35,7 +37,7 @@ export default function HomePage() {
 										</CardContent>
 										<CardFooter>
 											<div className="flex flex-col">
-												<h3 className="h3">{product.title}</h3>
+												<Subheading>{product.title}</Subheading>
 												{product.tags.length > 0 && (
 													<p className="text-sm">
 														{tags[product.tags[0] ?? ""]?.title} ·{" "}

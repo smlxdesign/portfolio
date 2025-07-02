@@ -8,18 +8,6 @@
 		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-@utility h1 {
-	@apply text-4xl text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl;
-}
-
-@utility h2 {
-	@apply text-2xl text-slate-900 md:text-3xl lg:text-4xl font-semibold;
-}
-
-@utility h3 {
-	@apply text-lg text-slate-900 md:text-xl lg:text-2xl font-semibold;
-}
-
 @theme inline {
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);
