@@ -115,8 +115,6 @@ export const products: Product[] = [
 				icon: RiGlobalLine,
 			},
 		],
-		tags: [
-			/* "web-app", "side-project", "frontend", "react", "tailwindcss" */
-		],
+		tags: ["web-app", "side-project", "frontend", "react", "tailwindcss"],
 	},
 ];
