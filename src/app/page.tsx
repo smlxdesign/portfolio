@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Hero } from "~/components/sections/hero";
 import { Card, CardContent, CardFooter } from "~/components/ui/card";
 import { products } from "~/data/products";
 import { tags } from "~/data/tags";
@@ -8,12 +9,10 @@ export default function HomePage() {
 	return (
 		<div className="flex flex-col bg-slate-100 text-slate-800">
 			<main>
-				<section className="px-6 pt-32 pb-16 md:pt-48 lg:px-24 xl:px-48">
-					<h1 className="h1">
-						Fullstack engineer
-						<br /> + designer
-					</h1>
-				</section>
+				<Hero>
+					Fullstack engineer
+					<br /> + designer
+				</Hero>
 				<section className="flex flex-col gap-8 px-6 py-16 md:py-48 lg:px-24 xl:px-48">
 					<h2 className="h2 w-full text-center">My Latest Projects</h2>
 					<div className="flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3">
