@@ -1,4 +1,5 @@
 import {
+	type RemixiconComponentType,
 	RiArrowLeftRightLine,
 	RiDatabase2Line,
 	RiGlobalLine,
@@ -6,7 +7,6 @@ import {
 	RiReactjsLine,
 	RiTailwindCssLine,
 	RiWindowLine,
-	type RemixiconComponentType,
 } from "@remixicon/react";
 
 export interface Tag {

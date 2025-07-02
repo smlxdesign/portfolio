@@ -1,8 +1,8 @@
 import {
+	type RemixiconComponentType,
 	RiCodeLine,
 	RiGlobalLine,
 	RiNewsLine,
-	type RemixiconComponentType,
 } from "@remixicon/react";
 
 export interface Link {
