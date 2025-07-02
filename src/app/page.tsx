@@ -2,21 +2,28 @@ import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "~/components/sections/hero";
 import { Heading } from "~/components/typography/heading";
-import { Card, CardContent, CardFooter } from "~/components/ui/card";
+import { Subheading } from "~/components/typography/subheading";
+import { Button } from "~/components/ui/button";
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "~/components/ui/card";
 import { products } from "~/data/products";
 import { tags } from "~/data/tags";
-import { Subheading } from "~/components/typography/subheading";
 
 export default function HomePage() {
 	return (
-		<div className="flex flex-col bg-slate-100 text-slate-800">
+		<div className="flex flex-col">
 			<main>
 				<Hero>
 					Fullstack engineer
 					<br /> + designer
 				</Hero>
-				<section className="flex flex-col gap-8 px-6 py-16 md:py-48 lg:px-24 xl:px-48">
-					<Heading className="w-full text-center">My Latest Projects</Heading>
+				<section className="flex flex-col items-center gap-8 px-6 py-16 md:py-48 lg:px-24 xl:px-48">
+					<Heading>My Latest Projects</Heading>
 					<div className="flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3">
 						{products.map((product, index) => {
 							if (index >= 3) {
@@ -51,6 +58,9 @@ export default function HomePage() {
 							);
 						})}
 					</div>
+					<Button asChild variant="secondary">
+						<Link href="/products/">Show all</Link>
+					</Button>
 				</section>
 			</main>
 		</div>
