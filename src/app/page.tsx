@@ -24,7 +24,7 @@ export default function HomePage() {
 
 							return (
 								<Link href={product.links[0]?.href ?? "/"} key={product.id}>
-									<Card>
+									<Card className="h-full justify-between">
 										<CardContent className="flex flex-col gap-4">
 											<Image
 												src={product.image.href}

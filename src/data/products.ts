@@ -94,4 +94,29 @@ export const products: Product[] = [
 			"tanstack-router",
 		],
 	},
+	{
+		id: "westquote",
+		title: "WestQuote™",
+		description:
+			"Really simple app that fetches the kanye.rest api and displays the returned quote.",
+		image: {
+			href: "/images/westquote.webp",
+			alt: "Phone screen showing the quote 'Artists are founders' by Kanye West",
+		},
+		links: [
+			{
+				title: "Source Code",
+				href: "https://github.com/smlxdesign/westquote",
+				icon: RiCodeLine,
+			},
+			{
+				title: "Live Site",
+				href: "https://westquote.netlify.app/",
+				icon: RiGlobalLine,
+			},
+		],
+		tags: [
+			/* "web-app", "side-project", "frontend", "react", "tailwindcss" */
+		],
+	},
 ];
