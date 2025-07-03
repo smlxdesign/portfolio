@@ -94,6 +94,27 @@ export function ContactForm() {
 							</div>
 						)}
 					</form.AppField>
+					<form.AppField name="subject">
+						{(field) => (
+							<div className="flex flex-col gap-1">
+								<field.Input
+									placeholder="Subject"
+									type="text"
+									onChange={(event) => field.handleChange(event.target.value)}
+									id={field.name}
+									name={field.name}
+									value={field.state.value}
+								/>
+								{!field.state.meta.isValid && field.state.meta.isTouched && (
+									<InlineError>
+										{field.state.meta.errors.map(
+											(error) => error?.message,
+										)[0] ?? null}
+									</InlineError>
+								)}
+							</div>
+						)}
+					</form.AppField>
 					<form.AppField name="message">
 						{(field) => (
 							<div className="flex flex-col gap-1">
