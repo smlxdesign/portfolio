@@ -4,13 +4,7 @@ import { Hero } from "~/components/sections/hero";
 import { Heading } from "~/components/typography/heading";
 import { Subheading } from "~/components/typography/subheading";
 import { Button } from "~/components/ui/button";
-import {
-	Card,
-	CardContent,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "~/components/ui/card";
+import { Card, CardContent, CardFooter } from "~/components/ui/card";
 import { products } from "~/data/products";
 import { tags } from "~/data/tags";
 
@@ -22,9 +16,9 @@ export default function HomePage() {
 					Fullstack engineer
 					<br /> + designer
 				</Hero>
-				<section className="flex flex-col items-center gap-8 px-6 py-16 md:py-48 lg:px-24 xl:px-48">
+				<section className="flex flex-col items-center gap-8 px-6 py-16 md:py-32 lg:px-24 xl:px-48">
 					<Heading>My Latest Projects</Heading>
-					<div className="flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3">
+					<div className="flex flex-col gap-4 sm:grid sm:grid-cols-3">
 						{products.map((product, index) => {
 							if (index >= 3) {
 								return null;
@@ -61,6 +55,50 @@ export default function HomePage() {
 					<Button asChild variant="secondary">
 						<Link href="/products/">Show all</Link>
 					</Button>
+				</section>
+				<section className="flex flex-col items-center gap-8 px-6 py-16 md:py-32 lg:px-24 xl:px-48">
+					<Heading>A little about me</Heading>
+					<div className="flex w-full flex-col gap-8 lg:flex-row">
+						<p className="w-full max-w-[60ch]">
+							Hey! I am Samuel, a passionate Software Engineer that loves to
+							build websites and user interfaces. During the summer of 2024, I
+							finished the SuperSimpleDev’s Javascript course. After building
+							some simple apps, I realized there was something missing;
+							autocomplete in my IDE. I found out about Typescript and instantly
+							got in love with the language.
+						</p>
+						<div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+							<div>
+								<Subheading>Languages & Tools</Subheading>
+								<ul className="ml-4 list-disc">
+									<li>Javascript</li>
+									<li>Typescript</li>
+									<li>SQL</li>
+									<li>Docker</li>
+									<li>Git</li>
+									<li>Linux</li>
+								</ul>
+							</div>
+							<div>
+								<Subheading>Frameworks & Libraries</Subheading>
+								<ul className="ml-4 list-disc">
+									<li>React</li>
+									<li>Node.js</li>
+									<li>Express.js</li>
+									<li>Tailwindcss</li>
+									<li>Next.js</li>
+								</ul>
+							</div>
+							<div>
+								<Subheading>Concepts</Subheading>
+								<ul className="ml-4 list-disc">
+									<li>Object Oriented Programming</li>
+									<li>Functional Programming</li>
+									<li>Procedural Programming</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</section>
 			</main>
 		</div>
