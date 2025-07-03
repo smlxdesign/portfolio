@@ -1,27 +1,16 @@
 "use client";
 
-import { z } from "zod/v4";
 import { createFormHook, createFormHookContexts } from "@tanstack/react-form";
+import { initialFormState } from "@tanstack/react-form/nextjs";
+import { useActionState } from "react";
+import { submitForm } from "~/app/actions";
+import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
-import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardHeader } from "./ui/card";
+import { formOptions, formSchema } from "~/data/form";
 import { Subheading } from "./typography/subheading";
-import { useEffect } from "react";
+import { Card, CardContent, CardHeader } from "./ui/card";
 import { InlineError } from "./ui/inline-error";
-
-export const formSchema = z.object({
-	name: z
-		.string()
-		.min(3, "Name must be longer than 3 characters")
-		.max(100, "Name must not be longer than 100 characters"),
-	email: z
-		.email()
-		.min(3, "Email must be longer than 3 characters")
-		.max(100, "Name must not be longer than 100 characters"),
-	message: z.string().min(3, "Message must be longer than 3 characters"),
-});
-export type formSchema = z.infer<typeof formSchema>;
 
 const { fieldContext, formContext } = createFormHookContexts();
 
@@ -38,19 +27,13 @@ const { useAppForm } = createFormHook({
 });
 
 export function ContactForm() {
+	const [, action] = useActionState(submitForm, initialFormState);
+
 	const form = useAppForm({
-		defaultValues: {
-			name: "",
-			email: "",
-			message: "",
-		},
+		...formOptions,
 
 		validators: {
 			onChange: formSchema,
-		},
-
-		onSubmit: ({ value }) => {
-			console.log(value);
 		},
 	});
 
@@ -61,9 +44,11 @@ export function ContactForm() {
 			</CardHeader>
 			<CardContent>
 				<form
+					action={action}
 					onSubmit={(event) => {
-						event.preventDefault();
+						/* event.preventDefault(); */
 						form.handleSubmit();
+						form.reset();
 					}}
 					className="flex w-80 flex-col gap-4"
 				>
@@ -130,7 +115,13 @@ export function ContactForm() {
 						)}
 					</form.AppField>
 					<form.AppForm>
-						<form.Button type="submit">Send</form.Button>
+						{form.state.isSubmitting ? (
+							<form.Button type="submit" disabled>
+								Sending...
+							</form.Button>
+						) : (
+							<form.Button type="submit">Send</form.Button>
+						)}
 					</form.AppForm>
 				</form>
 			</CardContent>
