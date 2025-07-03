@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ContactForm } from "~/components/contact-form";
 import { Hero } from "~/components/sections/hero";
 import { Heading } from "~/components/typography/heading";
 import { Subheading } from "~/components/typography/subheading";
@@ -16,7 +17,7 @@ export default function HomePage() {
 					Fullstack engineer
 					<br /> + designer
 				</Hero>
-				<section className="flex flex-col items-center gap-8 px-6 py-16 md:py-32 lg:px-24 xl:px-48">
+				<section className="flex flex-col items-center gap-8 px-8 py-16 sm:px-12 md:py-32 lg:px-24 xl:px-48">
 					<Heading>My Latest Projects</Heading>
 					<div className="flex flex-col gap-4 sm:grid sm:grid-cols-3">
 						{products.map((product, index) => {
@@ -56,7 +57,7 @@ export default function HomePage() {
 						<Link href="/products/">Show all</Link>
 					</Button>
 				</section>
-				<section className="flex flex-col items-center gap-8 px-6 py-16 md:py-32 lg:px-24 xl:px-48">
+				<section className="flex flex-col items-center gap-8 px-8 py-16 sm:px-12 md:py-32 lg:px-24 xl:px-48">
 					<Heading>A little about me</Heading>
 					<div className="flex w-full flex-col gap-8 lg:flex-row">
 						<p className="w-full max-w-[60ch]">
@@ -99,6 +100,10 @@ export default function HomePage() {
 							</div>
 						</div>
 					</div>
+				</section>
+				<section className="flex flex-col items-center gap-8 px-6 py-16 md:py-32 lg:px-24 xl:px-48">
+					<Heading>Decided yet?</Heading>
+					<ContactForm />
 				</section>
 			</main>
 		</div>
