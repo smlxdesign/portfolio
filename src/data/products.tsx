@@ -37,7 +37,7 @@ export const products: Product[] = [
 		links: [
 			{
 				title: "Case Study",
-				href: "/",
+				href: "/blog/pepsi-vs-coke",
 				icon: <RiNewsLine />,
 			},
 			{
@@ -72,7 +72,7 @@ export const products: Product[] = [
 		links: [
 			{
 				title: "Case Study",
-				href: "/",
+				href: "/blog/homework-app",
 				icon: <RiNewsLine />,
 			},
 			{
