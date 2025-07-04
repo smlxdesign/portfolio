@@ -6,7 +6,12 @@ import { Hero } from "~/components/sections/hero";
 import { Heading } from "~/components/typography/heading";
 import { Subheading } from "~/components/typography/subheading";
 import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardFooter } from "~/components/ui/card";
+import {
+	Card,
+	CardAction,
+	CardContent,
+	CardFooter,
+} from "~/components/ui/card";
 import { products } from "~/data/products";
 import { tags } from "~/data/tags";
 
@@ -40,30 +45,37 @@ export default function HomePage() {
 							}
 
 							return (
-								<Link href={product.links[0]?.href ?? "/"} key={product.id}>
-									<Card className="h-full justify-between">
-										<CardContent className="flex flex-col gap-4">
-											<Image
-												src={product.image.href}
-												alt={product.image.alt ?? ""}
-												className="rounded-lg"
-												width={1920}
-												height={1080}
-											/>
-										</CardContent>
-										<CardFooter>
-											<div className="flex flex-col">
-												<Subheading>{product.title}</Subheading>
-												{product.tags.length > 0 && (
-													<p className="text-sm">
-														{tags[product.tags[0] ?? ""]?.title} ·{" "}
-														{tags[product.tags[1] ?? ""]?.title}
-													</p>
-												)}
-											</div>
-										</CardFooter>
-									</Card>
-								</Link>
+								<Card key={product.id} className="h-full justify-between">
+									<CardContent className="flex flex-col gap-4">
+										<Image
+											src={product.image.href}
+											alt={product.image.alt ?? ""}
+											className="rounded-lg"
+											width={1920}
+											height={1080}
+										/>
+									</CardContent>
+									<CardFooter className="flex justify-between">
+										<div className="flex flex-col">
+											<Subheading>{product.title}</Subheading>
+											{product.tags.length > 0 && (
+												<p className="text-sm">
+													{tags[product.tags[0] ?? ""]?.title} ·{" "}
+													{tags[product.tags[1] ?? ""]?.title}
+												</p>
+											)}
+										</div>
+										{product.links[0] && (
+											<CardAction className="self-end">
+												<Button asChild variant="secondary" size="icon">
+													<Link href={product.links[0]}>
+														{product.links[0].icon}
+													</Link>
+												</Button>
+											</CardAction>
+										)}
+									</CardFooter>
+								</Card>
 							);
 						})}
 					</div>
@@ -115,8 +127,10 @@ export default function HomePage() {
 						</div>
 					</div>
 				</section>
-				<Contact />
 			</main>
+			<footer>
+				<Contact />
+			</footer>
 		</div>
 	);
 }
