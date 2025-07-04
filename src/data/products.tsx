@@ -1,6 +1,6 @@
 import {
-	type RemixiconComponentType,
 	RiCodeLine,
+	RiDrinks2Line,
 	RiGlobalLine,
 	RiNewsLine,
 } from "@remixicon/react";

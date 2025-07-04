@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Contact } from "~/components/sections/contact";
+import { Footer } from "~/components/sections/footer";
 import { Hero } from "~/components/sections/hero";
 import { Heading } from "~/components/typography/heading";
 import { Subheading } from "~/components/typography/subheading";
@@ -130,6 +131,7 @@ export default function HomePage() {
 			</main>
 			<footer>
 				<Contact />
+				<Footer />
 			</footer>
 		</div>
 	);
