@@ -68,7 +68,7 @@ export default function HomePage() {
 										{product.links[0] && (
 											<CardAction className="self-end">
 												<Button asChild variant="secondary" size="icon">
-													<Link href={product.links[0]}>
+													<Link href={product.links[0].href}>
 														{product.links[0].icon}
 													</Link>
 												</Button>
