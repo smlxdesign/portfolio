@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import { Contact } from "~/components/sections/contact";
 import { Hero } from "~/components/sections/hero";
 import { Heading } from "~/components/typography/heading";
@@ -8,6 +9,19 @@ import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardFooter } from "~/components/ui/card";
 import { products } from "~/data/products";
 import { tags } from "~/data/tags";
+
+function SkillsList(props: { category: string; skills: string[] }) {
+	return (
+		<div className="flex flex-col gap-2">
+			<Subheading>{props.category}</Subheading>
+			<ul className="ml-4 flex list-disc flex-col gap-1">
+				{props.skills.map((skill) => (
+					<li key={skill}>{skill}</li>
+				))}
+			</ul>
+		</div>
+	);
+}
 
 export default function HomePage() {
 	return (
@@ -69,35 +83,35 @@ export default function HomePage() {
 							got in love with the language.
 						</p>
 						<div className="flex flex-wrap gap-6 lg:flex-nowrap">
-							<div className="flex flex-col gap-2">
-								<Subheading>Languages & Tools</Subheading>
-								<ul className="ml-4 flex list-disc flex-col gap-1">
-									<li>Javascript</li>
-									<li>Typescript</li>
-									<li>SQL</li>
-									<li>Docker</li>
-									<li>Git</li>
-									<li>Linux</li>
-								</ul>
-							</div>
-							<div className="flex flex-col gap-2">
-								<Subheading>Frameworks & Libraries</Subheading>
-								<ul className="ml-4 flex list-disc flex-col gap-1">
-									<li>React</li>
-									<li>Node.js</li>
-									<li>Express.js</li>
-									<li>Tailwindcss</li>
-									<li>Next.js</li>
-								</ul>
-							</div>
-							<div className="flex flex-col gap-2">
-								<Subheading>CS Concepts</Subheading>
-								<ul className="ml-4 flex list-disc flex-col gap-1">
-									<li>Object Oriented Programming</li>
-									<li>Functional Programming</li>
-									<li>Procedural Programming</li>
-								</ul>
-							</div>
+							<SkillsList
+								category="Languages & Tools"
+								skills={[
+									"Javascript",
+									"Typescript",
+									"SQL",
+									"Docker",
+									"Git",
+									"Linux",
+								]}
+							/>
+							<SkillsList
+								category="Frameworks & Libraries"
+								skills={[
+									"React",
+									"Node.js",
+									"Express.js",
+									"Tailwindcss",
+									"Next.js",
+								]}
+							/>
+							<SkillsList
+								category="CS Concepts"
+								skills={[
+									"Object Oriented Programming",
+									"Functional Programming",
+									"Procedural Programming",
+								]}
+							/>
 						</div>
 					</div>
 				</section>
