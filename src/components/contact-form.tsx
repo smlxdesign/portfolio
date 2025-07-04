@@ -33,7 +33,7 @@ export function ContactForm() {
 		...formOptions,
 
 		validators: {
-			onSubmit: formSchema,
+			onBlur: formSchema,
 		},
 	});
 
@@ -58,17 +58,21 @@ export function ContactForm() {
 									placeholder="Nickname"
 									type="text"
 									onChange={(event) => field.handleChange(event.target.value)}
+									onBlur={() => field.handleBlur()}
 									id={field.name}
 									name={field.name}
 									value={field.state.value}
+									required
 								/>
-								{!field.state.meta.isValid && (
-									<InlineError>
-										{field.state.meta.errors.map(
-											(error) => error?.message,
-										)[0] ?? null}
-									</InlineError>
-								)}
+								{!field.state.meta.isValid &&
+									field.state.meta.isTouched &&
+									field.state.meta.isBlurred && (
+										<InlineError>
+											{field.state.meta.errors.map(
+												(error) => error?.message,
+											)[0] ?? null}
+										</InlineError>
+									)}
 							</div>
 						)}
 					</form.AppField>
@@ -79,17 +83,21 @@ export function ContactForm() {
 									placeholder="Email Address"
 									type="email"
 									onChange={(event) => field.handleChange(event.target.value)}
+									onBlur={() => field.handleBlur()}
 									id={field.name}
 									name={field.name}
 									value={field.state.value}
+									required
 								/>
-								{!field.state.meta.isValid && (
-									<InlineError>
-										{field.state.meta.errors.map(
-											(error) => error?.message,
-										)[0] ?? null}
-									</InlineError>
-								)}
+								{!field.state.meta.isValid &&
+									field.state.meta.isTouched &&
+									field.state.meta.isBlurred && (
+										<InlineError>
+											{field.state.meta.errors.map(
+												(error) => error?.message,
+											)[0] ?? null}
+										</InlineError>
+									)}
 							</div>
 						)}
 					</form.AppField>
@@ -100,17 +108,21 @@ export function ContactForm() {
 									placeholder="Subject"
 									type="text"
 									onChange={(event) => field.handleChange(event.target.value)}
+									onBlur={() => field.handleBlur()}
 									id={field.name}
 									name={field.name}
 									value={field.state.value}
+									required
 								/>
-								{!field.state.meta.isValid && (
-									<InlineError>
-										{field.state.meta.errors.map(
-											(error) => error?.message,
-										)[0] ?? null}
-									</InlineError>
-								)}
+								{!field.state.meta.isValid &&
+									field.state.meta.isTouched &&
+									field.state.meta.isBlurred && (
+										<InlineError>
+											{field.state.meta.errors.map(
+												(error) => error?.message,
+											)[0] ?? null}
+										</InlineError>
+									)}
 							</div>
 						)}
 					</form.AppField>
@@ -120,17 +132,21 @@ export function ContactForm() {
 								<field.Textarea
 									placeholder="Message"
 									onChange={(event) => field.handleChange(event.target.value)}
+									onBlur={() => field.handleBlur()}
 									id={field.name}
 									name={field.name}
 									value={field.state.value}
+									required
 								/>
-								{!field.state.meta.isValid && (
-									<InlineError>
-										{field.state.meta.errors.map(
-											(error) => error?.message,
-										)[0] ?? null}
-									</InlineError>
-								)}
+								{!field.state.meta.isValid &&
+									field.state.meta.isTouched &&
+									field.state.meta.isBlurred && (
+										<InlineError>
+											{field.state.meta.errors.map(
+												(error) => error?.message,
+											)[0] ?? null}
+										</InlineError>
+									)}
 							</div>
 						)}
 					</form.AppField>
