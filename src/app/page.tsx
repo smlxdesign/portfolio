@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ContactForm } from "~/components/contact-form";
+import { Contact } from "~/components/sections/contact";
 import { Hero } from "~/components/sections/hero";
 import { Heading } from "~/components/typography/heading";
 import { Subheading } from "~/components/typography/subheading";
@@ -101,10 +101,7 @@ export default function HomePage() {
 						</div>
 					</div>
 				</section>
-				<section className="flex flex-col items-center gap-8 px-6 py-16 md:py-32 lg:px-24 xl:px-48">
-					<Heading>Decided yet?</Heading>
-					<ContactForm />
-				</section>
+				<Contact />
 			</main>
 		</div>
 	);

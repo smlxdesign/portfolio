@@ -2,6 +2,7 @@
 
 import { createFormHook, createFormHookContexts } from "@tanstack/react-form";
 import { initialFormState } from "@tanstack/react-form/nextjs";
+import type React from "react";
 import { useActionState } from "react";
 import { submitForm } from "~/app/actions";
 import { Button } from "~/components/ui/button";
@@ -11,6 +12,7 @@ import { formOptions, formSchema } from "~/data/form";
 import { Subheading } from "./typography/subheading";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { InlineError } from "./ui/inline-error";
+import { cn } from "~/lib/utils";
 
 const { fieldContext, formContext } = createFormHookContexts();
 
@@ -26,7 +28,10 @@ const { useAppForm } = createFormHook({
 	formContext,
 });
 
-export function ContactForm() {
+export function ContactForm({
+	className,
+	...props
+}: React.ComponentProps<"div">) {
 	const [, action] = useActionState(submitForm, initialFormState);
 
 	const form = useAppForm({
@@ -38,7 +43,7 @@ export function ContactForm() {
 	});
 
 	return (
-		<Card>
+		<Card className={cn(className)} {...props}>
 			<CardHeader>
 				<Subheading>Contact me</Subheading>
 			</CardHeader>
