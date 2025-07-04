@@ -4,11 +4,12 @@ import {
 	RiGlobalLine,
 	RiNewsLine,
 } from "@remixicon/react";
+import type { ReactNode } from "react";
 
 export interface Link {
 	title: string;
 	href: string;
-	icon: RemixiconComponentType;
+	icon: ReactNode;
 }
 
 export interface Product {
@@ -37,17 +38,17 @@ export const products: Product[] = [
 			{
 				title: "Case Study",
 				href: "/",
-				icon: RiNewsLine,
+				icon: <RiNewsLine />,
 			},
 			{
 				title: "Source Code",
 				href: "https://sr.ht/~smlxdesign/pepsi-vs-coke/",
-				icon: RiCodeLine,
+				icon: <RiCodeLine />,
 			},
 			{
 				title: "Live Site",
 				href: "https://pepsi-eller-cola.vercel.app/",
-				icon: RiGlobalLine,
+				icon: <RiGlobalLine />,
 			},
 		],
 		tags: [
@@ -72,17 +73,17 @@ export const products: Product[] = [
 			{
 				title: "Case Study",
 				href: "/",
-				icon: RiNewsLine,
+				icon: <RiNewsLine />,
 			},
 			{
 				title: "Source Code",
 				href: "https://sr.ht/~smlxdesign/homework-app/",
-				icon: RiCodeLine,
+				icon: <RiCodeLine />,
 			},
 			{
 				title: "Live Site",
 				href: "https://homework.smlxdesign.is-a.dev/",
-				icon: RiGlobalLine,
+				icon: <RiGlobalLine />,
 			},
 		],
 		tags: [
@@ -107,12 +108,12 @@ export const products: Product[] = [
 			{
 				title: "Source Code",
 				href: "https://github.com/smlxdesign/westquote",
-				icon: RiCodeLine,
+				icon: <RiCodeLine />,
 			},
 			{
 				title: "Live Site",
 				href: "https://westquote.netlify.app/",
-				icon: RiGlobalLine,
+				icon: <RiGlobalLine />,
 			},
 		],
 		tags: ["web-app", "side-project", "frontend", "react", "tailwindcss"],
