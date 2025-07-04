@@ -73,7 +73,7 @@ export default function HomePage() {
 				</section>
 				<section className="flex flex-col items-center gap-8 px-8 py-16 sm:px-12 md:py-32 lg:px-24 xl:px-48">
 					<Heading>A little about me</Heading>
-					<div className="flex w-full flex-col gap-8 lg:flex-row">
+					<div className="flex w-full flex-col gap-12 lg:flex-row">
 						<p className="w-full max-w-[60ch]">
 							Hey! I am Samuel, a passionate Software Engineer that loves to
 							build websites and user interfaces. During the summer of 2024, I
