@@ -33,7 +33,7 @@ export function ContactForm() {
 		...formOptions,
 
 		validators: {
-			onChange: formSchema,
+			onSubmit: formSchema,
 		},
 	});
 
@@ -45,8 +45,7 @@ export function ContactForm() {
 			<CardContent>
 				<form
 					action={action}
-					onSubmit={(event) => {
-						/* event.preventDefault(); */
+					onSubmit={() => {
 						form.handleSubmit();
 						form.reset();
 					}}
@@ -63,7 +62,7 @@ export function ContactForm() {
 									name={field.name}
 									value={field.state.value}
 								/>
-								{!field.state.meta.isValid && field.state.meta.isTouched && (
+								{!field.state.meta.isValid && (
 									<InlineError>
 										{field.state.meta.errors.map(
 											(error) => error?.message,
@@ -84,7 +83,7 @@ export function ContactForm() {
 									name={field.name}
 									value={field.state.value}
 								/>
-								{!field.state.meta.isValid && field.state.meta.isTouched && (
+								{!field.state.meta.isValid && (
 									<InlineError>
 										{field.state.meta.errors.map(
 											(error) => error?.message,
@@ -105,7 +104,7 @@ export function ContactForm() {
 									name={field.name}
 									value={field.state.value}
 								/>
-								{!field.state.meta.isValid && field.state.meta.isTouched && (
+								{!field.state.meta.isValid && (
 									<InlineError>
 										{field.state.meta.errors.map(
 											(error) => error?.message,
@@ -125,7 +124,7 @@ export function ContactForm() {
 									name={field.name}
 									value={field.state.value}
 								/>
-								{!field.state.meta.isValid && field.state.meta.isTouched && (
+								{!field.state.meta.isValid && (
 									<InlineError>
 										{field.state.meta.errors.map(
 											(error) => error?.message,
