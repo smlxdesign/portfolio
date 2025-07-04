@@ -156,6 +156,13 @@
 	--shadow-2xl: var(--shadow-2xl);
 }
 
+@utility px-responsive {
+	@apply px-8 sm:px-12 lg:px-24 xl:px-48;
+}
+@utility py-responsive {
+	@apply py-16 md:py-32;
+}
+
 @layer base {
 	* {
 		@apply border-border outline-ring/50;

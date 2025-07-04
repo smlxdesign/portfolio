@@ -17,7 +17,7 @@ export default function HomePage() {
 					Fullstack engineer
 					<br /> + designer
 				</Hero>
-				<section className="flex flex-col items-center gap-8 px-8 py-16 sm:px-12 md:py-32 lg:px-24 xl:px-48">
+				<section className="flex flex-col items-center gap-8 px-responsive py-responsive">
 					<Heading>My Latest Projects</Heading>
 					<div className="flex flex-col gap-4 sm:grid sm:grid-cols-3">
 						{products.map((product, index) => {
@@ -68,10 +68,10 @@ export default function HomePage() {
 							autocomplete in my IDE. I found out about Typescript and instantly
 							got in love with the language.
 						</p>
-						<div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-							<div>
+						<div className="flex flex-wrap gap-6 lg:flex-nowrap">
+							<div className="flex flex-col gap-2">
 								<Subheading>Languages & Tools</Subheading>
-								<ul className="ml-4 list-disc">
+								<ul className="ml-4 flex list-disc flex-col gap-1">
 									<li>Javascript</li>
 									<li>Typescript</li>
 									<li>SQL</li>
@@ -80,9 +80,9 @@ export default function HomePage() {
 									<li>Linux</li>
 								</ul>
 							</div>
-							<div>
+							<div className="flex flex-col gap-2">
 								<Subheading>Frameworks & Libraries</Subheading>
-								<ul className="ml-4 list-disc">
+								<ul className="ml-4 flex list-disc flex-col gap-1">
 									<li>React</li>
 									<li>Node.js</li>
 									<li>Express.js</li>
@@ -90,9 +90,9 @@ export default function HomePage() {
 									<li>Next.js</li>
 								</ul>
 							</div>
-							<div>
-								<Subheading>Concepts</Subheading>
-								<ul className="ml-4 list-disc">
+							<div className="flex flex-col gap-2">
+								<Subheading>CS Concepts</Subheading>
+								<ul className="ml-4 flex list-disc flex-col gap-1">
 									<li>Object Oriented Programming</li>
 									<li>Functional Programming</li>
 									<li>Procedural Programming</li>

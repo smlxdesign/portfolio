@@ -9,10 +9,7 @@ export function Hero({
 }: React.ComponentProps<"section">) {
 	return (
 		<section
-			className={cn(
-				"px-8 pt-32 pb-16 sm:px-12 md:pt-48 lg:px-24 xl:px-48",
-				className,
-			)}
+			className={cn("mt-20 px-responsive py-responsive", className)}
 			{...props}
 		>
 			<Title>{children}</Title>

@@ -5,7 +5,7 @@ import ArrowVector from "~/assets/contact-arrow.svg";
 
 export function Contact() {
 	return (
-		<section className="flex flex-col items-center gap-8 px-6 py-16 md:py-32 lg:px-24 xl:px-48">
+		<section className="flex flex-col items-center gap-8 px-responsive py-responsive">
 			<Heading>Decided yet?</Heading>
 			<ContactForm className="z-10" />
 			<Image
