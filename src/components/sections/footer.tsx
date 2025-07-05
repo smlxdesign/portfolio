@@ -1,18 +1,18 @@
 import {
-    type RemixiconComponentType,
-    RiBlueskyLine,
-    RiBox3Line,
-    RiChat3Line,
+	type RemixiconComponentType,
+	RiBlueskyLine,
+	RiBox3Line,
+	RiChat3Line,
 	RiCodeSLine,
 	RiContactsBookLine,
-    RiCopyrightLine,
-    RiEditLine,
-    RiGithubLine,
-    RiHomeLine,
-    RiMailUnreadLine,
-    RiMastodonLine,
-    RiSurveyLine,
-    RiTwitterLine
+	RiCopyrightLine,
+	RiEditLine,
+	RiGithubLine,
+	RiHomeLine,
+	RiMailUnreadLine,
+	RiMastodonLine,
+	RiSurveyLine,
+	RiTwitterLine,
 } from "@remixicon/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -50,9 +50,9 @@ export function Footer() {
 	}
 
 	return (
-		<section className="flex justify-between gap-32 px-responsive py-responsive">
+		<section className="flex flex-col gap-16 px-responsive py-responsive md:flex-row md:justify-between lg:gap-20 xl:gap-32">
 			<Image src={logo} alt="SMLX Design Logo" className="size-48" />
-			<div className="flex flex-wrap gap-20">
+			<div className="flex flex-col gap-10 sm:flex-row sm:flex-wrap sm:gap-20">
 				<FooterList
 					category="Jump to..."
 					links={[
@@ -80,13 +80,15 @@ export function Footer() {
 				/>
 				<FooterList
 					category="Products"
-					links={products.filter((_, index) => index < 3).map((product) => {
-						return {
-							icon: RiBox3Line,
-							title: product.title,
-							href: product.links[0]?.href ?? "/products/",
-						};
-					})}
+					links={products
+						.filter((_, index) => index < 3)
+						.map((product) => {
+							return {
+								icon: RiBox3Line,
+								title: product.title,
+								href: product.links[0]?.href ?? "/products/",
+							};
+						})}
 				/>
 				<FooterList
 					category="Socials"
@@ -94,23 +96,23 @@ export function Footer() {
 						{
 							icon: RiGithubLine,
 							title: "Github",
-							href: "https://github.com/smlxdesign"
+							href: "https://github.com/smlxdesign",
 						},
 						{
 							icon: RiTwitterLine,
 							title: "Twitter/X",
-							href: "https://x.com/realsmlxdesign"
+							href: "https://x.com/realsmlxdesign",
 						},
 						{
 							icon: RiBlueskyLine,
 							title: "Bluesky",
-							href: "https://bsky.app/profile/smlxdesign.bsky.social"
+							href: "https://bsky.app/profile/smlxdesign.bsky.social",
 						},
 						{
 							icon: RiMastodonLine,
 							title: "Mastodon",
-							href: "https://mastodon.social/@smlxdesign"
-						}
+							href: "https://mastodon.social/@smlxdesign",
+						},
 					]}
 				/>
 				<FooterList
@@ -119,18 +121,18 @@ export function Footer() {
 						{
 							icon: RiMailUnreadLine,
 							title: "Send an Email",
-							href: "mailto:samuel.smlxdesign@gmail.com"
+							href: "mailto:samuel.smlxdesign@gmail.com",
 						},
 						{
 							icon: RiChat3Line,
 							title: "DM on Twitter",
-							href: "https://x.com/realsmlxdesign"
+							href: "https://x.com/realsmlxdesign",
 						},
 						{
 							icon: RiSurveyLine,
 							title: "Contact Form",
 							href: "/contact",
-						}
+						},
 					]}
 				/>
 				<FooterList
@@ -139,13 +141,13 @@ export function Footer() {
 						{
 							icon: RiCodeSLine,
 							title: "Source Code",
-							href: "https://github.com/smlxdesign/portfolio"
+							href: "https://github.com/smlxdesign/portfolio",
 						},
 						{
 							icon: RiCopyrightLine,
 							title: "License",
-							href: "https://github.com/smlxdesign/portfolio/blob/main/LICENSE"
-						}
+							href: "https://github.com/smlxdesign/portfolio/blob/main/LICENSE",
+						},
 					]}
 				/>
 			</div>
