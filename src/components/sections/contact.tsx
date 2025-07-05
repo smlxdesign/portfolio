@@ -1,7 +1,7 @@
 import Image from "next/image";
+import ArrowVector from "~/assets/contact-arrow.svg";
 import { ContactForm } from "~/components/contact-form";
 import { Heading } from "~/components/typography/heading";
-import ArrowVector from "~/assets/contact-arrow.svg";
 
 export function Contact() {
 	return (

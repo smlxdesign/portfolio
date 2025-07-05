@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Contact } from "~/components/sections/contact";
+import { Footer } from "~/components/sections/footer";
 import { Hero } from "~/components/sections/hero";
 import { Heading } from "~/components/typography/heading";
 import { Subheading } from "~/components/typography/subheading";
@@ -68,7 +69,7 @@ export default function HomePage() {
 										{product.links[0] && (
 											<CardAction className="self-end">
 												<Button asChild variant="secondary" size="icon">
-													<Link href={product.links[0]}>
+													<Link href={product.links[0].href}>
 														{product.links[0].icon}
 													</Link>
 												</Button>
@@ -130,6 +131,7 @@ export default function HomePage() {
 			</main>
 			<footer>
 				<Contact />
+				<Footer />
 			</footer>
 		</div>
 	);
