@@ -84,7 +84,7 @@ export function Footer() {
 						.filter((_, index) => index < 3)
 						.map((product) => {
 							return {
-								icon: RiBox3Line,
+								icon: product.icon ?? RiBox3Line,
 								title: product.title,
 								href: product.links[0]?.href ?? "/products/",
 							};

@@ -1,5 +1,8 @@
 import {
+	type RemixiconComponentType,
+	RiChatQuoteLine,
 	RiCodeLine,
+	RiDraftLine,
 	RiDrinks2Line,
 	RiGlobalLine,
 	RiNewsLine,
@@ -20,6 +23,7 @@ export interface Product {
 		href: string;
 		alt?: string;
 	};
+	icon?: RemixiconComponentType;
 	links: Link[];
 	tags: string[];
 }
@@ -34,6 +38,7 @@ export const products: Product[] = [
 			href: "/images/pepsi-vs-coke.webp",
 			alt: "Laptop screen showing two large buttons: 'Coke (489)' and 'Pepsi (403)'.",
 		},
+		icon: RiDrinks2Line,
 		links: [
 			{
 				title: "Case Study",
@@ -69,6 +74,7 @@ export const products: Product[] = [
 			href: "/images/homework-app.webp",
 			alt: "Phone app showing a list of assignments.",
 		},
+		icon: RiDraftLine,
 		links: [
 			{
 				title: "Case Study",
@@ -104,6 +110,7 @@ export const products: Product[] = [
 			href: "/images/westquote.webp",
 			alt: "Phone screen showing the quote 'Artists are founders' by Kanye West",
 		},
+		icon: RiChatQuoteLine,
 		links: [
 			{
 				title: "Source Code",
