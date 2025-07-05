@@ -8,7 +8,7 @@ export function Title({
 	return (
 		<h1
 			className={cn(
-				"text-4xl text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl",
+				"text-4xl text-slate-900 tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl",
 				className,
 			)}
 			{...props}

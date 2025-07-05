@@ -9,7 +9,7 @@ export function Subheading({
 	return (
 		<h3
 			className={cn(
-				"font-semibold text-lg text-slate-900 md:text-xl lg:text-2xl",
+				"font-semibold text-lg text-slate-900 tracking-tighter md:text-xl lg:text-2xl",
 				className,
 			)}
 			{...props}

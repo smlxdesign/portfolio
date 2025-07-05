@@ -9,7 +9,7 @@ export function Heading({
 	return (
 		<h2
 			className={cn(
-				"font-semibold text-2xl text-slate-900 md:text-3xl lg:text-4xl",
+				"font-semibold text-2xl text-slate-900 tracking-tighter md:text-3xl lg:text-4xl",
 				className,
 			)}
 			{...props}
