@@ -13,6 +13,7 @@ import { cn } from "~/lib/utils";
 import { Subheading } from "./typography/subheading";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { InlineError } from "./ui/inline-error";
+import { Label } from "@radix-ui/react-label";
 
 const { fieldContext, formContext } = createFormHookContexts();
 
@@ -59,6 +60,9 @@ export function ContactForm({
 					<form.AppField name="name">
 						{(field) => (
 							<div className="flex flex-col gap-1">
+								<Label htmlFor={field.name} className="sr-only">
+									Nickname
+								</Label>
 								<field.Input
 									placeholder="Nickname"
 									type="text"
@@ -84,6 +88,9 @@ export function ContactForm({
 					<form.AppField name="email">
 						{(field) => (
 							<div className="flex flex-col gap-1">
+								<Label htmlFor={field.name} className="sr-only">
+									Email Address
+								</Label>
 								<field.Input
 									placeholder="Email Address"
 									type="email"
@@ -109,6 +116,9 @@ export function ContactForm({
 					<form.AppField name="subject">
 						{(field) => (
 							<div className="flex flex-col gap-1">
+								<Label htmlFor={field.name} className="sr-only">
+									Subject
+								</Label>
 								<field.Input
 									placeholder="Subject"
 									type="text"
@@ -134,6 +144,9 @@ export function ContactForm({
 					<form.AppField name="message">
 						{(field) => (
 							<div className="flex flex-col gap-1">
+								<Label htmlFor={field.name} className="sr-only">
+									Message
+								</Label>
 								<field.Textarea
 									placeholder="Message"
 									onChange={(event) => field.handleChange(event.target.value)}
