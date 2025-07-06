@@ -10,6 +10,8 @@ const config = {
 	pageExtensions: ["js", "ts", "jsx", "tsx", "md", "mdx"],
 };
 
-const withMDX = CreateMDX({});
+const withMDX = CreateMDX({
+	extension: /\.(md|mdx)$/,
+});
 
 export default withMDX(config);
