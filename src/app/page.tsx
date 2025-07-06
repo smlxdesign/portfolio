@@ -72,6 +72,9 @@ export default function HomePage() {
 												<Button asChild variant="secondary" size="icon">
 													<Link href={product.links[0].href}>
 														{product.links[0].icon}
+														<span className="sr-only">
+															{product.links[0].title}
+														</span>
 													</Link>
 												</Button>
 											</CardAction>
