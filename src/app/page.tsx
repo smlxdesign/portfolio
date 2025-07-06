@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Navbar } from "~/components/navbar";
 import { Contact } from "~/components/sections/contact";
 import { Footer } from "~/components/sections/footer";
 import { Hero } from "~/components/sections/hero";
@@ -31,6 +32,7 @@ function SkillsList(props: { category: string; skills: string[] }) {
 export default function HomePage() {
 	return (
 		<div className="flex flex-col">
+			<Navbar />
 			<main>
 				<Hero>
 					Fullstack engineer
