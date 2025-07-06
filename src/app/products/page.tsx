@@ -3,8 +3,10 @@ import Link from "next/link";
 import { Navbar } from "~/components/navbar";
 import { Hero } from "~/components/sections/hero";
 import { Heading } from "~/components/typography/heading";
+import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { products } from "~/data/products";
+import { tags } from "~/data/tags";
 
 export default function Page() {
 	return (
@@ -25,6 +27,23 @@ export default function Page() {
 							<div className="flex w-full flex-col justify-between">
 								<div className="flex flex-col gap-3">
 									<Heading>{product.title}</Heading>
+									<div className="flex flex-wrap gap-2">
+										{product.tags.map((tagId) => {
+											const tag = tags[tagId];
+											console.log(tag);
+
+											if (tag === undefined) {
+												return null;
+											}
+
+											return (
+												<Badge variant="secondary" key={tag.title}>
+													<tag.icon />
+													{tag.title}
+												</Badge>
+											);
+										})}
+									</div>
 									<p className="max-w-[65ch]">{product.description}</p>
 								</div>
 								<div className="flex gap-2">
