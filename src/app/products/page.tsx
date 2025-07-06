@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "~/components/navbar";
+import { Contact } from "~/components/sections/contact";
+import { Footer } from "~/components/sections/footer";
 import { Hero } from "~/components/sections/hero";
 import { Heading } from "~/components/typography/heading";
 import { Badge } from "~/components/ui/badge";
@@ -65,6 +67,10 @@ export default function Page() {
 					))}
 				</ul>
 			</main>
+			<footer>
+				<Contact />
+				<Footer />
+			</footer>
 		</div>
 	);
 }
