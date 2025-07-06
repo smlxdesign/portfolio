@@ -1,5 +1,6 @@
 "use client";
 
+import { Label } from "@radix-ui/react-label";
 import { createFormHook, createFormHookContexts } from "@tanstack/react-form";
 import { initialFormState } from "@tanstack/react-form/nextjs";
 import type React from "react";
@@ -13,7 +14,6 @@ import { cn } from "~/lib/utils";
 import { Subheading } from "./typography/subheading";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { InlineError } from "./ui/inline-error";
-import { Label } from "@radix-ui/react-label";
 
 const { fieldContext, formContext } = createFormHookContexts();
 
