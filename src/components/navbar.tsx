@@ -52,13 +52,11 @@ export function Navbar() {
 
 	return (
 		<nav className="-translate-x-1/2 fixed top-4 left-1/2 z-100 flex gap-2 rounded-full border bg-white p-2">
-			<Link href="/">
-				<Image
-					src={logo}
-					alt="SMLX Design Logo"
-					className="mr-2 size-11 rounded-full"
-				/>
-			</Link>
+			<Image
+				src={logo}
+				alt="SMLX Design Logo"
+				className="mr-2 size-11 rounded-full"
+			/>
 			<NavbarItem href="/" icon={{ fill: RiHomeFill, line: RiHomeLine }}>
 				Home
 			</NavbarItem>
