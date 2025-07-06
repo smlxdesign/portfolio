@@ -67,18 +67,22 @@ export default function HomePage() {
 												</p>
 											)}
 										</div>
-										{product.links[0] && (
-											<CardAction className="self-end">
-												<Button asChild variant="secondary" size="icon">
-													<Link href={product.links[0].href}>
-														{product.links[0].icon}
-														<span className="sr-only">
-															{product.links[0].title}
-														</span>
-													</Link>
-												</Button>
-											</CardAction>
-										)}
+										{product.links.map((link, index) => {
+											if (!link || index > 0) {
+												return null;
+											}
+
+											return (
+												<CardAction key={link.href} className="self-end">
+													<Button asChild variant="secondary" size="icon">
+														<Link href={link.href}>
+															<link.icon />
+															<span className="sr-only">{link.title}</span>
+														</Link>
+													</Button>
+												</CardAction>
+											);
+										})}
 									</CardFooter>
 								</Card>
 							);

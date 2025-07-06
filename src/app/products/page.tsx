@@ -56,7 +56,7 @@ export default function Page() {
 											variant={index === 0 ? "default" : "secondary"}
 										>
 											<Link href={link.href}>
-												{link.icon}
+												<link.icon />
 												{link.title}
 											</Link>
 										</Button>
