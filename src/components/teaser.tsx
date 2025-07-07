@@ -9,7 +9,7 @@ import { Button } from "./ui/button";
 export function Teaser(props: {
 	image: { href: string; alt?: string };
 	title: string;
-	description?: string;
+	description?: string | string[];
 	tags: string[];
 	links: Array<{
 		href: string;
@@ -45,7 +45,16 @@ export function Teaser(props: {
 							);
 						})}
 					</div>
-					<p className="max-w-[65ch]">{props.description}</p>
+					{typeof props.description === "string" ||
+					typeof props.description === "undefined" ? (
+						<p className="max-w-[65ch]">{props.description}</p>
+					) : (
+						props.description.map((line) => (
+							<p key={line} className="max-w-[65ch]">
+								{line}
+							</p>
+						))
+					)}
 				</div>
 				<div className="flex gap-2">
 					{props.links.map((link, index) => (
