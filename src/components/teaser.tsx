@@ -32,7 +32,6 @@ export function Teaser(props: {
 					<div className="flex flex-wrap gap-2">
 						{props.tags.map((tagId) => {
 							const tag = tags[tagId];
-							console.log(tag);
 
 							if (tag === undefined) {
 								return null;

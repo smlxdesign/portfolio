@@ -21,14 +21,11 @@ export function getContentData() {
 	const filenames = readdirSync(contentDirectory);
 	const contentData = filenames.map((filename) => {
 		const id = filename.replace(/\.(md|mdx)$/, "");
-		console.log(`id: ${id}`);
 
 		const fullPath = path.join(contentDirectory, filename);
 		const fileContent = readFileSync(fullPath, "utf-8");
-		console.log(fullPath, fileContent);
 
 		const frontmatter = matter(fileContent);
-		console.log(frontmatter);
 
 		return {
 			id,
