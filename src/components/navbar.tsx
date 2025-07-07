@@ -66,7 +66,7 @@ export function Navbar() {
 			>
 				Products
 			</NavbarItem>
-			<NavbarItem href="/blog/" icon={{ fill: RiEditFill, line: RiEditLine }}>
+			<NavbarItem href="/blog" icon={{ fill: RiEditFill, line: RiEditLine }}>
 				Blog
 			</NavbarItem>
 			<NavbarItem
