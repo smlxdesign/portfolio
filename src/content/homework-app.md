@@ -2,6 +2,9 @@
 title: 'How I Created a Homework Tracking App'
 description: 'A web-app to track your assignments, homework, and upcoming tests.'
 date: '2025-07-07'
+image:
+  href: "/images/homework-app.webp"
+  alt: "Phone app showing a list of assignments."
 tags:
   - 'web-app'
   - 'frontend'

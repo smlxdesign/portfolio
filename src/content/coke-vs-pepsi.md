@@ -2,6 +2,9 @@
 title: 'How I Created a Soda Voting App'
 description: 'An app to help you find out which soda brand is more popular among consumers; Pepsi or Coke.'
 date: '2025-07-07'
+image:
+  href: "/images/pepsi-vs-coke.webp"
+  alt: "Laptop screen showing two large buttons: 'Coke (489)' and 'Pepsi (403)'."
 tags:
   - 'web-app'
   - 'frontend'
