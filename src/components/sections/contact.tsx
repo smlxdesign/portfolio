@@ -9,7 +9,7 @@ export function Contact() {
 			<Heading>Decided yet?</Heading>
 			<ContactForm className="z-10" />
 			<Image
-				className="-rotate-12 absolute hidden translate-x-64 translate-y-28 scale-75 md:block"
+				className="-rotate-12 absolute hidden translate-x-64 translate-y-28 scale-60 md:block lg:scale-75"
 				src={ArrowVector}
 				alt=""
 				aria-hidden
