@@ -24,9 +24,9 @@ export function Teaser(props: {
 				alt={props.image.alt ?? ""}
 				width={1920}
 				height={1080}
-				className="w-full rounded-xl"
+				className="w-full rounded-xl object-cover"
 			/>
-			<div className="flex w-full flex-col justify-between">
+			<div className="flex w-full flex-col justify-between gap-8">
 				<div className="flex flex-col gap-3">
 					<Heading>{props.title}</Heading>
 					<div className="flex flex-wrap gap-2">
