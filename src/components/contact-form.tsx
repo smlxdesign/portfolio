@@ -55,7 +55,7 @@ export function ContactForm({
 						form.handleSubmit();
 						form.reset();
 					}}
-					className="flex w-80 flex-col gap-4"
+					className="flex w-full flex-col gap-4"
 				>
 					<form.AppField name="name">
 						{(field) => (
