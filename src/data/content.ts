@@ -11,7 +11,8 @@ export const schema = z.object({
 		href: z.string(),
 		alt: z.string().optional(),
 	}),
-	date: z.iso.date().transform((str) => new Date(str)),
+	publishedAt: z.iso.date().transform((str) => new Date(str)),
+	updatedAt: z.iso.date().transform((str) => new Date(str)),
 	tags: z.array(z.string()),
 });
 
