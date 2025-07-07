@@ -2,6 +2,9 @@ import "~/styles/globals.css";
 
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
+import { Navbar } from "~/components/navbar";
+import { Contact } from "~/components/sections/contact";
+import { Footer } from "~/components/sections/footer";
 
 export const metadata: Metadata = {
 	title: "SMLX Design",
@@ -20,7 +23,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<html lang="en" className={`${spaceGrotesk.className}`}>
-			<body>{children}</body>
+			<body className="flex flex-col">
+				<Navbar />
+				<main>{children}</main>
+				<footer>
+					<Contact />
+					<Footer />
+				</footer>
+			</body>
 		</html>
 	);
 }
