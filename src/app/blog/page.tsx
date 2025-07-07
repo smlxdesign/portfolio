@@ -1,4 +1,5 @@
 import { RiNewsLine } from "@remixicon/react";
+import { format } from "date-fns";
 import { Navbar } from "~/components/navbar";
 import { Contact } from "~/components/sections/contact";
 import { Footer } from "~/components/sections/footer";
@@ -18,6 +19,11 @@ export default function Page() {
 					{content.map((post) => (
 						<li key={post.id}>
 							<Teaser
+								{...post}
+								description={[
+									`Published ${format(post.publishedAt, "PPP")}. Updated ${format(post.updatedAt, "PPP")}`,
+									post.description ?? "",
+								]}
 								links={[
 									{
 										title: "Read",
@@ -25,7 +31,6 @@ export default function Page() {
 										icon: RiNewsLine,
 									},
 								]}
-								{...post}
 							/>
 						</li>
 					))}
