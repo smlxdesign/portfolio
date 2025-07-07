@@ -27,7 +27,7 @@ export default function Page() {
 								links={[
 									{
 										title: "Read",
-										href: `/blog/ + ${post.id}`,
+										href: `/blog/${post.id}`,
 										icon: RiNewsLine,
 									},
 								]}
