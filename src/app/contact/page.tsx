@@ -32,7 +32,6 @@ export default function Page() {
 			<div className="z-10 flex flex-col items-center justify-center">
 				<Image
 					loading="eager"
-					aria-hidden
 					alt=""
 					src={mobileArrow}
 					className="scale-70 lg:hidden"
@@ -41,28 +40,24 @@ export default function Page() {
 			</div>
 			<Image
 				loading="lazy"
-				aria-hidden
 				alt=""
 				src={mobileHeart}
 				className="scale-70 lg:hidden"
 			/>
 			<Image
 				loading="lazy"
-				aria-hidden
 				alt=""
 				src={desktopQuestionmark}
 				className="absolute top-15 right-30 hidden scale-60 fill-white lg:block xl:right-110"
 			/>
 			<Image
 				loading="lazy"
-				aria-hidden
 				alt=""
 				src={desktopPaperplane}
 				className="absolute right-40 bottom-30 hidden scale-70 fill-white lg:block xl:right-90 xl:bottom-45 xl:scale-80"
 			/>
 			<Image
 				loading="lazy"
-				aria-hidden
 				alt=""
 				src={desktopHeart}
 				className="absolute bottom-15 left-20 hidden scale-70 fill-white lg:block xl:bottom-20 xl:left-30"
