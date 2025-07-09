@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from "node:fs";
+import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
 import { z } from "zod/v4";
@@ -19,13 +19,13 @@ export type schema = z.infer<typeof schema>;
 
 const contentDirectory = path.join(process.cwd(), "src", "content");
 
-export function getContentData() {
-	const filenames = readdirSync(contentDirectory);
-	const contentData = filenames.map((filename) => {
+export async function getContentData() {
+	const filenames = await readdir(contentDirectory);
+	const contentData = filenames.map(async (filename) => {
 		const id = filename.replace(/\.(md|mdx)$/, "");
 
 		const fullPath = path.join(contentDirectory, filename);
-		const fileContent = readFileSync(fullPath, "utf-8");
+		const fileContent = await readFile(fullPath, "utf-8");
 
 		const frontmatter = matter(fileContent);
 
@@ -34,5 +34,12 @@ export function getContentData() {
 			...frontmatter.data,
 		};
 	});
-	return z.array(schema).parse(contentData);
+
+	const result: schema[] = [];
+
+	for (const post of contentData) {
+		result.push(schema.parse(await post));
+	}
+
+	return result;
 }
