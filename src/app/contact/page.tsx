@@ -35,7 +35,7 @@ export default function Page() {
 					src={mobileArrow}
 					className="scale-70 lg:hidden"
 				/>
-				<ContactForm className="h-fit w-full max-w-100" />
+				<ContactForm className="h-fit w-full max-w-100" formId="contact-page" />
 			</div>
 			<Image
 				loading="lazy"

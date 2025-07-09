@@ -31,8 +31,9 @@ const { useAppForm } = createFormHook({
 
 export function ContactForm({
 	className,
+	formId,
 	...props
-}: React.ComponentProps<"div">) {
+}: React.ComponentProps<"div"> & { formId: string }) {
 	const [, action] = useActionState(submitForm, initialFormState);
 
 	const form = useAppForm({
@@ -57,10 +58,10 @@ export function ContactForm({
 					}}
 					className="flex w-full flex-col gap-4"
 				>
-					<form.AppField name="name">
+					<form.AppField name={`name`}>
 						{(field) => (
 							<div className="flex flex-col gap-1">
-								<Label htmlFor={field.name} className="sr-only">
+								<Label htmlFor={field.name + formId} className="sr-only">
 									Nickname
 								</Label>
 								<field.Input
@@ -68,8 +69,8 @@ export function ContactForm({
 									type="text"
 									onChange={(event) => field.handleChange(event.target.value)}
 									onBlur={() => field.handleBlur()}
-									id={field.name}
-									name={field.name}
+									id={field.name + formId}
+									name={field.name + formId}
 									value={field.state.value}
 									required
 								/>
@@ -88,7 +89,7 @@ export function ContactForm({
 					<form.AppField name="email">
 						{(field) => (
 							<div className="flex flex-col gap-1">
-								<Label htmlFor={field.name} className="sr-only">
+								<Label htmlFor={field.name + formId} className="sr-only">
 									Email Address
 								</Label>
 								<field.Input
@@ -96,8 +97,8 @@ export function ContactForm({
 									type="email"
 									onChange={(event) => field.handleChange(event.target.value)}
 									onBlur={() => field.handleBlur()}
-									id={field.name}
-									name={field.name}
+									id={field.name + formId}
+									name={field.name + formId}
 									value={field.state.value}
 									required
 								/>
@@ -116,7 +117,7 @@ export function ContactForm({
 					<form.AppField name="subject">
 						{(field) => (
 							<div className="flex flex-col gap-1">
-								<Label htmlFor={field.name} className="sr-only">
+								<Label htmlFor={field.name + formId} className="sr-only">
 									Subject
 								</Label>
 								<field.Input
@@ -124,8 +125,8 @@ export function ContactForm({
 									type="text"
 									onChange={(event) => field.handleChange(event.target.value)}
 									onBlur={() => field.handleBlur()}
-									id={field.name}
-									name={field.name}
+									id={field.name + formId}
+									name={field.name + formId}
 									value={field.state.value}
 									required
 								/>
@@ -144,15 +145,15 @@ export function ContactForm({
 					<form.AppField name="message">
 						{(field) => (
 							<div className="flex flex-col gap-1">
-								<Label htmlFor={field.name} className="sr-only">
+								<Label htmlFor={field.name + formId} className="sr-only">
 									Message
 								</Label>
 								<field.Textarea
 									placeholder="Message"
 									onChange={(event) => field.handleChange(event.target.value)}
 									onBlur={() => field.handleBlur()}
-									id={field.name}
-									name={field.name}
+									id={field.name + formId}
+									name={field.name + formId}
 									value={field.state.value}
 									required
 								/>
