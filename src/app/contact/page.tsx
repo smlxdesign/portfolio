@@ -6,10 +6,12 @@ import mobileArrow from "~/assets/contact-page/mobile-arrow.svg";
 import mobileHeart from "~/assets/contact-page/mobile-heart.svg";
 import { ContactForm } from "~/components/contact-form";
 import { Heading } from "~/components/typography/heading";
+import { Title } from "~/components/typography/title";
 
 export default function Page() {
 	return (
-		<section className="flex min-h-lvh flex-col items-center gap-16 bg-[url(/contact-background.webp))] px-responsive py-responsive lg:grid lg:grid-cols-2">
+		<section className="flex min-h-lvh flex-col items-center gap-16 bg-[url(/contact-background.webp))] bg-blue-100 px-responsive py-responsive lg:grid lg:grid-cols-2">
+			<Title className="sr-only">Contact</Title>
 			<div className="z-10 mt-20 flex flex-col items-center justify-center gap-8">
 				<div className="flex max-w-100 flex-col gap-2">
 					<Heading>Email</Heading>
