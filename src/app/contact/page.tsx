@@ -10,7 +10,7 @@ import { Title } from "~/components/typography/title";
 
 export default function Page() {
 	return (
-		<section className="flex min-h-lvh flex-col items-center gap-16 bg-[url(/contact-background.webp))] bg-blue-100 px-responsive py-responsive lg:grid lg:grid-cols-2">
+		<section className="relative flex min-h-lvh flex-col items-center gap-16 bg-[url(/contact-background.webp))] bg-blue-100 px-responsive py-responsive lg:grid lg:grid-cols-2">
 			<Title className="sr-only">Contact</Title>
 			<div className="z-10 mt-20 flex flex-col items-center justify-center gap-8">
 				<div className="flex max-w-100 flex-col gap-2">
@@ -67,6 +67,7 @@ export default function Page() {
 				src={desktopHeart}
 				className="absolute bottom-15 left-20 hidden scale-70 fill-white lg:block xl:bottom-20 xl:left-30"
 			/>
+
 			<div className="absolute right-0 bottom-0 left-0 h-1/4 bg-linear-to-t from-background to-transparent" />
 		</section>
 	);
