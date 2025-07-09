@@ -15,6 +15,7 @@ export const schema = z.object({
 	updatedAt: z.iso.date().transform((str) => new Date(str)),
 	tags: z.array(z.string()),
 });
+export type schema = z.infer<typeof schema>;
 
 const contentDirectory = path.join(process.cwd(), "src", "content");
 
