@@ -2,6 +2,8 @@ import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
 import { z } from "zod/v4";
+import { remark } from "remark";
+import html from "remark-html";
 
 export const schema = z.object({
 	id: z.string().min(3),
@@ -45,20 +47,17 @@ export async function getContentData() {
 }
 
 export async function getPostById(id: string) {
-	const filenames = await readdir(contentDirectory);
-	const postFilename = filenames.filter(
-		(filename) => !!filename.search(new RegExp(`/${id}\.(md|mdx)/`)),
-	)[0];
+	const fullpath = path.join(contentDirectory, `${id}.md`);
+	const file = await readFile(fullpath, "utf-8");
+	const matterResult = matter(file);
 
-	if (!postFilename) {
-		return;
-	}
+	const processedContent = await remark()
+		.use(html)
+		.process(matterResult.content);
+	const contentHtml = processedContent.toString();
 
-	const file = await readFile(
-		path.join(contentDirectory, postFilename),
-		"utf-8",
-	);
-	const fileContent = matter(file);
-
-	return { ...fileContent, data: schema.parse({ id, ...fileContent.data }) };
+	return {
+		content: contentHtml,
+		...schema.parse({ id, ...matterResult.data }),
+	};
 }
