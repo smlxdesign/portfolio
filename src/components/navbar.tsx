@@ -51,7 +51,7 @@ export function Navbar() {
 	}
 
 	return (
-		<nav className="-translate-x-1/2 fixed top-4 left-1/2 z-100 flex gap-2 rounded-full border bg-white p-2">
+		<nav className="-translate-x-1/2 fixed top-4 left-1/2 z-100 flex w-max gap-2 rounded-full border bg-white p-2">
 			<Image
 				src={logo}
 				alt="SMLX Design Logo"
