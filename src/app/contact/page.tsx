@@ -67,6 +67,7 @@ export default function Page() {
 				src={desktopHeart}
 				className="absolute bottom-15 left-20 hidden scale-70 fill-white lg:block xl:bottom-20 xl:left-30"
 			/>
+			<div className="absolute right-0 bottom-0 left-0 h-1/4 bg-linear-to-t from-background to-transparent" />
 		</section>
 	);
 }
