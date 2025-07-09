@@ -43,3 +43,21 @@ export async function getContentData() {
 
 	return result;
 }
+export async function getPostById(id: string) {
+	const filenames = await readdir(contentDirectory);
+	const postFilename = filenames.filter(
+		(filename) => !!filename.search(new RegExp(`/${id}\.(md|mdx)/`)),
+	)[0];
+
+	if (!postFilename) {
+		return;
+	}
+
+	const file = await readFile(
+		path.join(contentDirectory, postFilename),
+		"utf-8",
+	);
+	const fileContent = matter(file);
+
+	return { ...fileContent, data: schema.parse({ id, ...fileContent.data }) };
+}
