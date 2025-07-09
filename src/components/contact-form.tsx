@@ -58,7 +58,7 @@ export function ContactForm({
 					}}
 					className="flex w-full flex-col gap-4"
 				>
-					<form.AppField name={`name`}>
+					<form.AppField name="name">
 						{(field) => (
 							<div className="flex flex-col gap-1">
 								<Label htmlFor={field.name + formId} className="sr-only">
