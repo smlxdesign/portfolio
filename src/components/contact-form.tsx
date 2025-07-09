@@ -144,7 +144,7 @@ export function ContactForm({
 					</form.AppField>
 					<form.AppField name="message">
 						{(field) => (
-							<div className="flex flex-col gap-1">
+							<div className="flex flex-col gap-1 max-h-50">
 								<Label htmlFor={field.name + formId} className="sr-only">
 									Message
 								</Label>
