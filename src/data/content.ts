@@ -43,6 +43,7 @@ export async function getContentData() {
 
 	return result;
 }
+
 export async function getPostById(id: string) {
 	const filenames = await readdir(contentDirectory);
 	const postFilename = filenames.filter(
