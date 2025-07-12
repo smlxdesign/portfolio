@@ -35,7 +35,7 @@ export default async function Page({
 				className="aspect-[4/3] w-full object-cover sm:aspect-[12/5]"
 			/>
 			<section className="flex min-h-lvh flex-col gap-16 px-responsive lg:flex-row-reverse">
-				<div className="sticky top-0 flex min-h-lvh w-full flex-col gap-4 py-responsive">
+				<div className="sticky top-0 flex h-fit w-full flex-col gap-4 py-responsive">
 					{post.description && <p>{post.description}</p>}
 					<div className="flex flex-wrap gap-2">
 						{post.tags.map((tagId) => {
