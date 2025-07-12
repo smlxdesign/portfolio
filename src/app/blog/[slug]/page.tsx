@@ -51,13 +51,13 @@ export default async function Page({
 						})}
 					</div>
 				</div>
-				<div className="w-full py-responsive">
-					<Heading>{post.title}</Heading>
-					{/**
-					 *	biome-ignore lint/security/noDangerouslySetInnerHtml: the docs told me to do this
-					 *	https://nextjs.org/learn/pages-router/dynamic-routes-render-markdown
-					 */}
-					<div dangerouslySetInnerHTML={{ __html: post.content }} />
+				<div className="flex w-full flex-col gap-10 py-responsive">
+					<Title className="text-balance">{post.title}</Title>
+					<div
+						className="prose prose-headings:text-primary prose-p:text-foreground"
+						/* biome-ignore lint/security/noDangerouslySetInnerHtml: the docs told me to do this */
+						dangerouslySetInnerHTML={{ __html: post.content }}
+					/>
 				</div>
 			</section>
 		</>
