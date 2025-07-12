@@ -1,10 +1,6 @@
-import { RiFacebookCircleLine, RiTwitterLine } from "@remixicon/react";
 import Image from "next/image";
-import Link from "next/link";
-import { redirect } from "next/navigation";
-import { Heading } from "~/components/typography/heading";
+import { Title } from "~/components/typography/title";
 import { Badge } from "~/components/ui/badge";
-import { Button } from "~/components/ui/button";
 import { getContentData, getPostById } from "~/data/content";
 import { tags } from "~/data/tags";
 
