@@ -1,8 +1,14 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
-import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
+import rehypeSanitize from "rehype-sanitize";
+import rehypeStringify from "rehype-stringify";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkGfm from "remark-gfm";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import remarkToc from "remark-toc";
+import { unified } from "unified";
+import * as yaml from "yaml";
 import { z } from "zod/v4";
 
 export const schema = z.object({
@@ -21,6 +27,20 @@ export type schema = z.infer<typeof schema>;
 
 const contentDirectory = path.join(process.cwd(), "src", "content");
 
+const generateMdast = unified()
+	.use(remarkParse)
+	.use(remarkFrontmatter)
+	.use(remarkGfm)
+	.use(remarkToc);
+
+function getFrontmatter(file: string) {
+	return yaml.parse(
+		generateMdast()
+			.parse(file)
+			.children.find((child) => child.type === "yaml")?.value ?? "",
+	);
+}
+
 export async function getContentData() {
 	const filenames = await readdir(contentDirectory);
 	const contentData = filenames.map(async (filename) => {
@@ -29,17 +49,18 @@ export async function getContentData() {
 		const fullPath = path.join(contentDirectory, filename);
 		const fileContent = await readFile(fullPath, "utf-8");
 
-		const frontmatter = matter(fileContent);
+		const frontmatter = getFrontmatter(fileContent);
 
 		return {
 			id,
-			...frontmatter.data,
+			...frontmatter,
 		};
 	});
 
 	const result: schema[] = [];
 
 	for (const post of contentData) {
+		console.log(await post);
 		result.push(schema.parse(await post));
 	}
 
@@ -49,15 +70,17 @@ export async function getContentData() {
 export async function getPostById(id: string) {
 	const fullpath = path.join(contentDirectory, `${id}.md`);
 	const file = await readFile(fullpath, "utf-8");
-	const matterResult = matter(file);
 
-	const processedContent = await remark()
-		.use(html)
-		.process(matterResult.content);
-	const contentHtml = processedContent.toString();
+	const frontmatter = getFrontmatter(file);
+
+	const html = await generateMdast()
+		.use(remarkRehype)
+		.use(rehypeSanitize)
+		.use(rehypeStringify)
+		.process(file);
 
 	return {
-		content: contentHtml,
-		...schema.parse({ id, ...matterResult.data }),
+		content: html.toString(),
+		...schema.parse({ id, ...frontmatter }),
 	};
 }
