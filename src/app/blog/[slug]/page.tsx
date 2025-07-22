@@ -28,6 +28,7 @@ export default async function Page({
 				alt={post.image.alt ?? ""}
 				width={1920}
 				height={1080}
+				priority
 				className="aspect-[4/3] w-full object-cover sm:aspect-[12/5]"
 			/>
 			<section className="flex min-h-lvh flex-col gap-16 px-responsive lg:flex-row-reverse">
