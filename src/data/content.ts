@@ -6,7 +6,6 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
-import remarkToc from "remark-toc";
 import { unified } from "unified";
 import * as yaml from "yaml";
 import { z } from "zod/v4";
@@ -30,8 +29,7 @@ const contentDirectory = path.join(process.cwd(), "src", "content");
 const generateMdast = unified()
 	.use(remarkParse)
 	.use(remarkFrontmatter)
-	.use(remarkGfm)
-	.use(remarkToc);
+	.use(remarkGfm);
 
 function getFrontmatter(file: string) {
 	return yaml.parse(
