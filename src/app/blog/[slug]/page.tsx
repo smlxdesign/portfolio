@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 import { Title } from "~/components/typography/title";
 import { Badge } from "~/components/ui/badge";
 import { getContentData, getPostById } from "~/data/content";

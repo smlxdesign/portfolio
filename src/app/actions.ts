@@ -1,8 +1,8 @@
 "use server";
 
 import {
-	ServerValidateError,
 	createServerValidate,
+	ServerValidateError,
 } from "@tanstack/react-form/nextjs";
 import { Resend } from "resend";
 import { formOptions, formSchema } from "~/data/form";
@@ -13,7 +13,7 @@ const serverValidate = createServerValidate({
 	onServerValidate: formSchema,
 });
 
-export async function submitForm(prev: unknown, formData: FormData) {
+export async function submitForm(_: unknown, formData: FormData) {
 	try {
 		const validatedData = await serverValidate(formData);
 		console.log(validatedData);
