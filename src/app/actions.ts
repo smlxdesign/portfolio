@@ -16,7 +16,6 @@ const serverValidate = createServerValidate({
 export async function submitForm(_: unknown, formData: FormData) {
 	try {
 		const validatedData = await serverValidate(formData);
-		console.log(validatedData);
 
 		const resend = new Resend(env.RESEND_API_KEY);
 
