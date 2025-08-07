@@ -8,7 +8,7 @@ export default function Page() {
 
 	for (const [id, value] of Object.entries(tags)) {
 		tagsElements.push(
-			<li>
+			<li key={id}>
 				<Link
 					href={`/blog/tags/${id}`}
 					className="flex items-center gap-2 rounded px-6 py-4 text-lg hover:bg-secondary"
