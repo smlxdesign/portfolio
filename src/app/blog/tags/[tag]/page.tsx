@@ -40,29 +40,33 @@ export default async function Page({
 		<>
 			<Hero>Tagged “{tag.title}”</Hero>
 			<section className="flex flex-col gap-24 px-responsive py-responsive">
-				<ul className="flex flex-col gap-24">
-					{filteredPosts.map((post) => (
-						<Teaser
-							key={post.id}
-							{...post}
-							links={[
-								{
-									title: "Read",
-									href: `/blog/${post.id}`,
-									icon: RiNewsLine,
-								},
-							]}
-						/>
-					))}
-				</ul>
+				{filteredPosts.length > 0 && (
+					<ul className="flex flex-col gap-24">
+						{filteredPosts.map((post) => (
+							<Teaser
+								key={post.id}
+								{...post}
+								links={[
+									{
+										title: "Read",
+										href: `/blog/${post.id}`,
+										icon: RiNewsLine,
+									},
+								]}
+							/>
+						))}
+					</ul>
+				)}
 				{filteredPosts.length > 0 && filteredProducts.length > 0 && (
 					<div className="my-4 h-px w-full bg-border" />
 				)}
-				<ul className="flex flex-col gap-24">
-					{filteredProducts.map((product) => (
-						<Teaser key={product.id} {...product} />
-					))}
-				</ul>
+				{filteredProducts.length > 0 && (
+					<ul className="flex flex-col gap-24">
+						{filteredProducts.map((product) => (
+							<Teaser key={product.id} {...product} />
+						))}
+					</ul>
+				)}
 			</section>
 		</>
 	);
