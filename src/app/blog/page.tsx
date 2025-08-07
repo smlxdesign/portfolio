@@ -4,8 +4,8 @@ import { Hero } from "~/components/sections/hero";
 import { Teaser } from "~/components/teaser";
 import { getContentData } from "~/data/content";
 
-export default function Page() {
-	const content = getContentData();
+export default async function Page() {
+	const content = await getContentData();
 
 	return (
 		<>
