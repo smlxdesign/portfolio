@@ -38,9 +38,11 @@ export function Teaser(props: {
 							}
 
 							return (
-								<Badge variant="secondary" key={tag.title}>
-									<tag.icon />
-									{tag.title}
+								<Badge asChild variant="secondary" key={tag.title}>
+									<Link href={`/blog/tags/${tagId}`}>
+										<tag.icon />
+										{tag.title}
+									</Link>
 								</Badge>
 							);
 						})}
