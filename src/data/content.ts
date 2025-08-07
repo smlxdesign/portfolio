@@ -2,7 +2,7 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment } from "react";
+import { Fragment, type ReactNode } from "react";
 import { jsx, jsxs } from "react/jsx-runtime";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeRaw from "rehype-raw";
@@ -111,7 +111,7 @@ export async function getPostById(id: string) {
 		.process(file);
 
 	return {
-		content: content.result,
+		content: content.result as ReactNode,
 		...schema.parse({ id, ...frontmatter }),
 	};
 }
