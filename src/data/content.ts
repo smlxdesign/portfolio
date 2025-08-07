@@ -8,6 +8,7 @@ import rehypeExternalLinks from "rehype-external-links";
 import rehypeRaw from "rehype-raw";
 import rehypeReact from "rehype-react";
 import rehypeSanitize from "rehype-sanitize";
+import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
@@ -89,6 +90,7 @@ export async function getPostById(id: string) {
 					target: "_blank",
 				},
 			],
+			rehypeSlug,
 			[
 				rehypeReact,
 				{
