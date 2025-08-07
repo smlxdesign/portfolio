@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Title } from "~/components/typography/title";
 import { Badge } from "~/components/ui/badge";
 import { getContentData, getPostById } from "~/data/content";
@@ -41,8 +42,10 @@ export default async function Page({
 							if (!tag) return null;
 
 							return (
-								<Badge key={tagId} variant="secondary">
-									<tag.icon /> {tag.title}
+								<Badge asChild key={tagId} variant="secondary">
+									<Link href={`/blog/tags/${tagId}`}>
+										<tag.icon /> {tag.title}
+									</Link>
 								</Badge>
 							);
 						})}
