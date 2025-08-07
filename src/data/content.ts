@@ -1,7 +1,13 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
+import Image from "next/image";
+import Link from "next/link";
+import { Fragment } from "react";
+import { jsx, jsxs } from "react/jsx-runtime";
+import rehypeExternalLinks from "rehype-external-links";
+import rehypeRaw from "rehype-raw";
+import rehypeReact from "rehype-react";
 import rehypeSanitize from "rehype-sanitize";
-import rehypeStringify from "rehype-stringify";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
@@ -9,6 +15,9 @@ import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 import * as yaml from "yaml";
 import { z } from "zod/v4";
+import { Heading } from "~/components/typography/heading";
+import { Subheading } from "~/components/typography/subheading";
+import { Title } from "~/components/typography/title";
 
 export const schema = z.object({
 	id: z.string().min(3),
@@ -28,14 +37,13 @@ const contentDirectory = path.join(process.cwd(), "src", "content");
 
 const generateMdast = unified()
 	.use(remarkParse)
-	.use(remarkFrontmatter)
-	.use(remarkGfm);
+	.use([remarkFrontmatter, remarkGfm]);
 
-function getFrontmatter(file: string) {
+async function getFrontmatter(file: string): Promise<Record<string, unknown>> {
+	const mdast = generateMdast().parse(file);
+
 	return yaml.parse(
-		generateMdast()
-			.parse(file)
-			.children.find((child) => child.type === "yaml")?.value ?? "",
+		mdast.children.find((child) => child.type === "yaml")?.value ?? "",
 	);
 }
 
@@ -47,7 +55,7 @@ export async function getContentData() {
 		const fullPath = path.join(contentDirectory, filename);
 		const fileContent = await readFile(fullPath, "utf-8");
 
-		const frontmatter = getFrontmatter(fileContent);
+		const frontmatter = await getFrontmatter(fileContent);
 
 		return {
 			id,
@@ -58,7 +66,6 @@ export async function getContentData() {
 	const result: schema[] = [];
 
 	for (const post of contentData) {
-		console.log(await post);
 		result.push(schema.parse(await post));
 	}
 
@@ -69,16 +76,40 @@ export async function getPostById(id: string) {
 	const fullpath = path.join(contentDirectory, `${id}.md`);
 	const file = await readFile(fullpath, "utf-8");
 
-	const frontmatter = getFrontmatter(file);
+	const frontmatter = await getFrontmatter(file);
 
-	const html = await generateMdast()
-		.use(remarkRehype)
-		.use(rehypeSanitize)
-		.use(rehypeStringify)
+	const content = await generateMdast()
+		.use([
+			[remarkRehype, { allowDangerousHtml: true }],
+			rehypeRaw,
+			//rehypeSanitize,
+			[
+				rehypeExternalLinks,
+				{
+					target: "_blank",
+				},
+			],
+			[
+				rehypeReact,
+				{
+					Fragment,
+					jsx,
+					jsxs,
+					components: {
+						a: Link,
+						img: Image,
+						h1: Title,
+						h2: Heading,
+						h3: Subheading,
+					},
+				},
+			],
+		])
+		//.use(rehypeStringify)
 		.process(file);
 
 	return {
-		content: html.toString(),
+		content: content.result,
 		...schema.parse({ id, ...frontmatter }),
 	};
 }

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import React from "react";
 import { Title } from "~/components/typography/title";
 import { Badge } from "~/components/ui/badge";
 import { getContentData, getPostById } from "~/data/content";
@@ -50,11 +51,9 @@ export default async function Page({
 				</div>
 				<div className="flex w-full flex-col gap-18 py-responsive">
 					<Title className="text-balance">{post.title}</Title>
-					<div
-						className="prose prose-headings:text-primary prose-p:text-foreground"
-						/* biome-ignore lint/security/noDangerouslySetInnerHtml: the docs told me to do this */
-						dangerouslySetInnerHTML={{ __html: post.content }}
-					/>
+					<div className="prose prose-a:descriptive-link-icon prose-a:font-normal prose-p:text-foreground">
+						{post.content}
+					</div>
 				</div>
 			</section>
 		</>
