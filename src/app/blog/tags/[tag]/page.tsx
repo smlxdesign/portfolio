@@ -28,36 +28,40 @@ export default async function Page({
 		notFound();
 	}
 
-	const posts = await getContentData();
+	const filteredPosts = (await getContentData()).filter((post) =>
+		post.tags.includes(tagId),
+	);
+
+	const filteredProducts = products.filter((product) =>
+		product.tags.includes(tagId),
+	);
 
 	return (
 		<>
 			<Hero>Tagged “{tag.title}”</Hero>
 			<section className="flex flex-col gap-24 px-responsive py-responsive">
 				<ul className="flex flex-col gap-24">
-					{posts
-						.filter((post) => post.tags.includes(tagId))
-						.map((post) => (
-							<Teaser
-								key={post.id}
-								{...post}
-								links={[
-									{
-										title: "Read",
-										href: `/blog/${post.id}`,
-										icon: RiNewsLine,
-									},
-								]}
-							/>
-						))}
+					{filteredPosts.map((post) => (
+						<Teaser
+							key={post.id}
+							{...post}
+							links={[
+								{
+									title: "Read",
+									href: `/blog/${post.id}`,
+									icon: RiNewsLine,
+								},
+							]}
+						/>
+					))}
 				</ul>
-				{posts && products && <div className="my-4 h-px w-full bg-border" />}
+				{filteredPosts.length > 0 && filteredProducts.length > 0 && (
+					<div className="my-4 h-px w-full bg-border" />
+				)}
 				<ul className="flex flex-col gap-24">
-					{products
-						.filter((product) => product.tags.includes(tagId))
-						.map((product) => (
-							<Teaser key={product.id} {...product} />
-						))}
+					{filteredProducts.map((product) => (
+						<Teaser key={product.id} {...product} />
+					))}
 				</ul>
 			</section>
 		</>
