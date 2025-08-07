@@ -160,8 +160,22 @@
 @utility px-responsive {
 	@apply px-8 sm:px-12 lg:px-24 xl:px-48;
 }
+
 @utility py-responsive {
 	@apply py-16 md:py-32;
+}
+
+@utility descriptive-link-icon {
+	&[href^="http"]::after,
+	&[href^="mailto"]::after {
+		content: " ↗";
+		@apply no-underline;
+	}
+
+	&[href^="#"]::after {
+		content: " ↕";
+		@apply no-underline;
+	}
 }
 
 @layer base {
