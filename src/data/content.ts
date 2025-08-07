@@ -7,6 +7,7 @@ import { jsx, jsxs } from "react/jsx-runtime";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeRaw from "rehype-raw";
 import rehypeReact from "rehype-react";
+import rehypeSanitize from "rehype-sanitize";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
@@ -81,7 +82,7 @@ export async function getPostById(id: string) {
 		.use([
 			[remarkRehype, { allowDangerousHtml: true }],
 			rehypeRaw,
-			//rehypeSanitize,
+			rehypeSanitize,
 			[
 				rehypeExternalLinks,
 				{
