@@ -56,7 +56,7 @@ export function ContactForm({
 					action={action}
 					onSubmit={() => {
 						form.handleSubmit();
-						posthog.capture("Form Submit");
+						posthog.capture("form_submitted");
 						form.reset();
 					}}
 					className="flex w-full flex-col gap-4"
