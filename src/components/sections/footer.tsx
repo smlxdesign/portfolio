@@ -38,7 +38,7 @@ export function Footer() {
 						<li key={link.title}>
 							<Link
 								href={link.href}
-								className="flex flex-row items-center gap-2 text-lg"
+								className="flex flex-row items-center gap-2 text-lg descriptive-link-icon"
 							>
 								<link.icon className="size-5" />
 								{link.title}
