@@ -46,8 +46,6 @@ export function ContactForm({
 		},
 	});
 
-	const pathname = usePathname();
-
 	return (
 		<Card className={cn(className)} {...props}>
 			<CardHeader>
@@ -58,9 +56,7 @@ export function ContactForm({
 					action={action}
 					onSubmit={() => {
 						form.handleSubmit();
-						posthog.capture("Form Submit", {
-							page: pathname,
-						});
+						posthog.capture("Form Submit");
 						form.reset();
 					}}
 					className="flex w-full flex-col gap-4"
