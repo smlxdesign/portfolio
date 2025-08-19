@@ -58,7 +58,7 @@ export function Teaser(props: {
 						))
 					)}
 				</div>
-				<div className="flex gap-2">
+				<div className="flex flex-wrap gap-2">
 					{props.links.map((link, index) => (
 						<Button
 							key={link.href}
