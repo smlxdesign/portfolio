@@ -1,15 +1,15 @@
 import { RiHomeLine } from "@remixicon/react";
+import Image from "next/image";
 import Link from "next/link";
+import notfoundSadVector from "~/assets/404-sad.svg";
 import { Title } from "~/components/typography/title";
 import { Button } from "~/components/ui/button";
-import notfoundSadVector from "~/assets/404-sad.svg";
-import Image from "next/image";
 
 export default function Page() {
 	return (
 		<section className="mt-20 flex flex-col gap-8 px-responsive py-responsive">
 			<Image
-				className="xl:absolute xl:right-10 scale-75 xl:right-40"
+				className="scale-75 xl:absolute xl:right-10 xl:right-40"
 				src={notfoundSadVector}
 				alt=""
 			/>
