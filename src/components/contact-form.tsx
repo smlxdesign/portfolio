@@ -14,6 +14,8 @@ import { cn } from "~/lib/utils";
 import { Subheading } from "./typography/subheading";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { InlineError } from "./ui/inline-error";
+import posthog from "posthog-js";
+import { usePathname } from "next/navigation";
 
 const { fieldContext, formContext } = createFormHookContexts();
 
@@ -44,6 +46,8 @@ export function ContactForm({
 		},
 	});
 
+	const pathname = usePathname();
+
 	return (
 		<Card className={cn(className)} {...props}>
 			<CardHeader>
@@ -54,6 +58,9 @@ export function ContactForm({
 					action={action}
 					onSubmit={() => {
 						form.handleSubmit();
+						posthog.capture("Form Submit", {
+							page: pathname,
+						});
 						form.reset();
 					}}
 					className="flex w-full flex-col gap-4"
