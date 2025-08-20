@@ -20,6 +20,7 @@ import Link from "next/link";
 import logo from "~/assets/logo.svg";
 import { Subheading } from "~/components/typography/subheading";
 import { products } from "~/data/products";
+import { DescriptiveLink } from "../descriptive-link";
 
 export function Footer() {
 	function FooterList(props: {
@@ -36,13 +37,10 @@ export function Footer() {
 				<ul className="flex flex-col gap-2">
 					{props.links.map((link) => (
 						<li key={link.title}>
-							<Link
-								href={link.href}
-								className="flex flex-row items-center gap-2 text-lg descriptive-link-icon"
-							>
+							<div className="flex flex-row items-center gap-2 text-lg">
 								<link.icon className="size-5" />
-								{link.title}
-							</Link>
+								<DescriptiveLink href={link.href}>{link.title}</DescriptiveLink>
+							</div>
 						</li>
 					))}
 				</ul>
@@ -58,6 +56,11 @@ export function Footer() {
 					<FooterList
 						category="Jump to..."
 						links={[
+							{
+								icon: RiArrowUpLine,
+								title: "Top of the page",
+								href: "#",
+							},
 							{
 								icon: RiHomeLine,
 								title: "Home",
