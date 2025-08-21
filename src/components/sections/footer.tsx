@@ -20,6 +20,7 @@ import Link from "next/link";
 import logo from "~/assets/logo.svg";
 import { Subheading } from "~/components/typography/subheading";
 import { products } from "~/data/products";
+import { DescriptiveLink } from "../descriptive-link";
 
 export function Footer() {
 	function FooterList(props: {
@@ -36,13 +37,10 @@ export function Footer() {
 				<ul className="flex flex-col gap-2">
 					{props.links.map((link) => (
 						<li key={link.title}>
-							<Link
-								href={link.href}
-								className="flex flex-row items-center gap-2 text-lg"
-							>
+							<div className="flex flex-row items-center gap-2 text-lg">
 								<link.icon className="size-5" />
-								{link.title}
-							</Link>
+								<DescriptiveLink href={link.href}>{link.title}</DescriptiveLink>
+							</div>
 						</li>
 					))}
 				</ul>
@@ -58,6 +56,11 @@ export function Footer() {
 					<FooterList
 						category="Jump to..."
 						links={[
+							{
+								icon: RiArrowUpLine,
+								title: "Top of the page",
+								href: "#",
+							},
 							{
 								icon: RiHomeLine,
 								title: "Home",
@@ -103,7 +106,7 @@ export function Footer() {
 							{
 								icon: RiTwitterLine,
 								title: "Twitter/X",
-								href: "https://x.com/realsmlxdesign",
+								href: "https://x.com/smlxdesign",
 							},
 							{
 								icon: RiBlueskyLine,
@@ -123,12 +126,12 @@ export function Footer() {
 							{
 								icon: RiMailUnreadLine,
 								title: "Send an Email",
-								href: "mailto:samuel.smlxdesign@gmail.com",
+								href: "/contact",
 							},
 							{
 								icon: RiChat3Line,
 								title: "DM on Twitter",
-								href: "https://x.com/realsmlxdesign",
+								href: "https://x.com/smlxdesign",
 							},
 							{
 								icon: RiSurveyLine,

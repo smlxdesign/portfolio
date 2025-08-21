@@ -1,7 +1,6 @@
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import Image from "next/image";
-import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
 import { jsx, jsxs } from "react/jsx-runtime";
 import rehypeExternalLinks from "rehype-external-links";
@@ -16,6 +15,7 @@ import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 import * as yaml from "yaml";
 import { z } from "zod/v4";
+import { DescriptiveLink } from "~/components/descriptive-link";
 import { Heading } from "~/components/typography/heading";
 import { Subheading } from "~/components/typography/subheading";
 import { Title } from "~/components/typography/title";
@@ -98,7 +98,7 @@ export async function getPostById(id: string) {
 					jsx,
 					jsxs,
 					components: {
-						a: Link,
+						a: DescriptiveLink,
 						img: Image,
 						h1: Title,
 						h2: Heading,

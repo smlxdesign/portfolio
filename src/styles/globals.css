@@ -165,19 +165,6 @@
 	@apply py-16 md:py-32;
 }
 
-@utility descriptive-link-icon {
-	&[href^="http"]::after,
-	&[href^="mailto"]::after {
-		content: " ↗";
-		@apply no-underline;
-	}
-
-	&[href^="#"]::after {
-		content: " ↕";
-		@apply no-underline;
-	}
-}
-
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
