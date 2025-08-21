@@ -5,6 +5,7 @@ import desktopHeart from "~/assets/contact-page/destop-heart.svg";
 import mobileArrow from "~/assets/contact-page/mobile-arrow.svg";
 import mobileHeart from "~/assets/contact-page/mobile-heart.svg";
 import { ContactForm } from "~/components/contact-form";
+import { DescriptiveLink } from "~/components/descriptive-link";
 import { Heading } from "~/components/typography/heading";
 import { Title } from "~/components/typography/title";
 
@@ -15,17 +16,28 @@ export default function Page() {
 			<div className="z-10 mt-20 flex flex-col items-center justify-center gap-8">
 				<div className="flex max-w-100 flex-col gap-2">
 					<Heading>Email</Heading>
-					<p>
-						Send an email to samuel.smlxdesign@gmail.com using you preferred
-						mailing client and wait for a response.
+					<p id="email-paragraph">
+						Send an email to samuel(dot)smlxdesign(at)gmail(dot)com using you
+						preferred mailing client and wait for a response.
 					</p>
 				</div>
 				<div className="flex max-w-100 flex-col gap-2">
 					<Heading>Other Platforms</Heading>
 					<p>
-						I have an account on multiple platforms. On Twitter/X you can find
-						me under the name @realsmlxdesign, and @smlxdesign on Bluesky and
-						Mastodon.
+						I have an account on multiple platforms. You can find me at the
+						following sites:{" "}
+						<DescriptiveLink href="https://x.com/smlxdesign">
+							Twitter/X
+						</DescriptiveLink>
+						,{" "}
+						<DescriptiveLink href="https://bsky.app/profile/smlxdesign.bsky.social">
+							Bluesky
+						</DescriptiveLink>
+						, and{" "}
+						<DescriptiveLink href="https://mastodon.social/@smlxdesign">
+							Mastodon
+						</DescriptiveLink>
+						, with the username <em>@smlxdesign</em>. My DMs are open 😃
 					</p>
 				</div>
 			</div>

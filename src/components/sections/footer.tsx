@@ -106,7 +106,7 @@ export function Footer() {
 							{
 								icon: RiTwitterLine,
 								title: "Twitter/X",
-								href: "https://x.com/realsmlxdesign",
+								href: "https://x.com/smlxdesign",
 							},
 							{
 								icon: RiBlueskyLine,
@@ -126,12 +126,12 @@ export function Footer() {
 							{
 								icon: RiMailUnreadLine,
 								title: "Send an Email",
-								href: "mailto:samuel.smlxdesign@gmail.com",
+								href: "/contact",
 							},
 							{
 								icon: RiChat3Line,
 								title: "DM on Twitter",
-								href: "https://x.com/realsmlxdesign",
+								href: "https://x.com/smlxdesign",
 							},
 							{
 								icon: RiSurveyLine,
