@@ -28,8 +28,6 @@
 		"date-fns": "^4.1.0",
 		"gray-matter": "^4.0.3",
 		"next": "^15.4.6",
-		"posthog-js": "^1.260.1",
-		"posthog-node": "^5.7.0",
 		"react": "^19.1.1",
 		"react-dom": "^19.1.1",
 		"rehype-external-links": "^3.0.0",
