@@ -1,5 +1,5 @@
-import { env } from "./env.js";
 import posthog from "posthog-js";
+import { env } from "./env.js";
 
 posthog.init(env.NEXT_PUBLIC_POSTHOG_KEY, {
 	api_host: env.NEXT_PUBLIC_POSTHOG_HOST,
