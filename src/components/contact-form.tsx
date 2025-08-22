@@ -3,7 +3,6 @@
 import { Label } from "@radix-ui/react-label";
 import { createFormHook, createFormHookContexts } from "@tanstack/react-form";
 import { initialFormState } from "@tanstack/react-form/nextjs";
-import posthog from "posthog-js";
 import type React from "react";
 import { useActionState } from "react";
 import { submitForm } from "~/app/actions";
@@ -55,7 +54,6 @@ export function ContactForm({
 					action={action}
 					onSubmit={() => {
 						form.handleSubmit();
-						posthog.capture("form_submitted");
 						form.reset();
 					}}
 					className="flex w-full flex-col gap-4"
