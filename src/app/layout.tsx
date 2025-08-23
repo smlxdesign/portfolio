@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 	title: "SMLX Design",
 	description:
 		"Hey! I am Samuel, a passionate Software Engineer that loves to build websites and user interfaces. During the summer of 2024, I finished the SuperSimpleDev’s Javascript course. After building some simple apps, I realized there was something missing; autocomplete in my IDE. I found out about Typescript and instantly got in love with the language.",
-	icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 const spaceGrotesk = Space_Grotesk({
