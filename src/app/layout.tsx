@@ -6,13 +6,15 @@ import { Navbar } from "~/components/navbar";
 import { Contact } from "~/components/sections/contact";
 import { Footer } from "~/components/sections/footer";
 
+const description =
+	"Hey! I am Samuel, a passionate Software Engineer that loves to build websites and user interfaces";
+
 export const metadata: Metadata = {
-	description:
-		"Hey! I am Samuel, a passionate Software Engineer that loves to build websites and user interfaces. During the summer of 2024, I finished the SuperSimpleDev’s Javascript course. After building some simple apps, I realized there was something missing; autocomplete in my IDE. I found out about Typescript and instantly got in love with the language.",
 	title: {
 		template: "%s – SMLX Design",
 		default: "SMLX Design",
 	},
+	description,
 	manifest: "/site.webmanifest",
 };
 
