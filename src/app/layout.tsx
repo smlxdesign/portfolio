@@ -14,6 +14,16 @@ export const metadata: Metadata = {
 		template: "%s – SMLX Design",
 		default: "SMLX Design",
 	},
+	openGraph: {
+		title: {
+			template: "%s – SMLX Design",
+			default: "SMLX Design",
+		},
+		url: "https://portfolio-smlxdesign.vercel.app",
+		description,
+		siteName: "SMLX Design",
+		type: "website",
+	},
 	description,
 	manifest: "/site.webmanifest",
 };
