@@ -34,6 +34,10 @@ export const metadata: Metadata = {
 		creator: "@smlxdesign",
 		description,
 	},
+	robots: {
+		index: true,
+		follow: true,
+	},
 	description,
 	manifest: "/site.webmanifest",
 };
