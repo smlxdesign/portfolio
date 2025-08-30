@@ -24,6 +24,16 @@ export const metadata: Metadata = {
 		siteName: "SMLX Design",
 		type: "website",
 	},
+	twitter: {
+		card: "summary",
+		title: {
+			template: "%s – SMLX Design",
+			default: "SMLX Design",
+		},
+		site: "@smlxdesign",
+		creator: "@smlxdesign",
+		description,
+	},
 	description,
 	manifest: "/site.webmanifest",
 };
