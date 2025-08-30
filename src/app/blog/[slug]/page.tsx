@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -12,6 +13,37 @@ export async function generateStaticParams() {
 	return posts.map((post) => ({
 		slug: post.id,
 	}));
+}
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+	const { slug } = await params;
+
+	try {
+		const post = await getPostById(slug);
+		if (!post) throw Error("Post not found");
+
+		return {
+			title: post.title,
+			description: post.description,
+			openGraph: {
+				title: post.title,
+				description: post.description,
+				images: { url: post.image.href, alt: post.image.alt },
+			},
+			twitter: {
+				title: post.title,
+				description: post.description,
+				images: { url: post.image.href, alt: post.image.alt },
+			},
+		};
+	} catch (error) {
+		console.error(error);
+		return {};
+	}
 }
 
 export default async function Page({
