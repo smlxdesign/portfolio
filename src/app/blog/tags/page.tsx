@@ -1,7 +1,21 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Hero } from "~/components/sections/hero";
 import { tags } from "~/data/tags";
+
+export const metadata: Metadata = {
+	title: "All Tags",
+	description: "A list of blog tags",
+	openGraph: {
+		title: "All Tags",
+		description: "A list of blog tags",
+	},
+	twitter: {
+		title: "All Tags",
+		description: "A list of blog tags",
+	},
+};
 
 export default function Page() {
 	const tagsElements: ReactNode[] = [];
