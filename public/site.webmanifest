@@ -1,4 +1,5 @@
 {
+	"version": 3,
 	"name": "SMLX Design",
 	"short_name": "SMLX Design",
 	"icons": [
@@ -15,5 +16,6 @@
 	],
 	"theme_color": "#1d4ed8",
 	"background_color": "#ffffff",
-	"display": "minimal-ui"
+	"display": "minimal-ui",
+	"start_url": "/"
 }
