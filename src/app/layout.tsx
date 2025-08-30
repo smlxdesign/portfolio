@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 			template: "%s – SMLX Design",
 			default: "SMLX Design",
 		},
-		url: "https://portfolio-smlxdesign.vercel.app",
+		url: "https://portfolio-smlx-design.vercel.app",
 		description,
 		siteName: "SMLX Design",
 		type: "website",
