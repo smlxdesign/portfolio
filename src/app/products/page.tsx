@@ -1,6 +1,15 @@
+import type { Metadata } from "next";
 import { Hero } from "~/components/sections/hero";
 import { Teaser } from "~/components/teaser";
 import { products } from "~/data/products";
+
+export const metadata: Metadata = {
+	title: "Products",
+	openGraph: {
+		title: "Products",
+		description: "A list of the stuff I have made",
+	},
+};
 
 export default function Page() {
 	return (
