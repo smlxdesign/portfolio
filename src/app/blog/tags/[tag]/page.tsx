@@ -1,4 +1,5 @@
 import { RiNewsLine } from "@remixicon/react";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Hero } from "~/components/sections/hero";
 import { Teaser } from "~/components/teaser";
@@ -14,6 +15,34 @@ export async function generateStaticParams() {
 	}
 
 	return result;
+}
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ tag: string }>;
+}): Promise<Metadata> {
+	const { tag: tagId } = await params;
+	try {
+		const tag = tags[tagId];
+		if (!tag) throw Error("Tag not found");
+
+		return {
+			title: `Tagged “${tag.title}”`,
+			description: `All my blog posts tagged with “${tag.title}”`,
+			openGraph: {
+				title: `Tagged “${tag.title}”`,
+				description: `All my blog posts tagged with “${tag.title}”`,
+			},
+			twitter: {
+				title: `Tagged “${tag.title}”`,
+				description: `All my blog posts tagged with “${tag.title}”`,
+			},
+		};
+	} catch (error) {
+		console.error(error);
+		return {};
+	}
 }
 
 export default async function Page({
