@@ -65,36 +65,39 @@ export default async function Page({
 		product.tags.includes(tagId),
 	);
 
+	const filteredPostsAndProducts = filteredProducts
+		.concat(
+			filteredPosts.map((post) => ({
+				...post,
+				links: [
+					{
+						title: "Read",
+						href: `/blog/${post.id}`,
+						icon: RiNewsLine,
+					},
+				],
+			})),
+		)
+		.toSorted((a, b) => a.title.toLowerCase().localeCompare(b.title));
+
 	return (
 		<>
 			<Hero>Tagged “{tag.title}”</Hero>
 			<section className="flex flex-col gap-24 px-responsive py-responsive">
-				{filteredPosts.length > 0 && (
+				{filteredPostsAndProducts.length > 0 ? (
 					<ul className="flex flex-col gap-24">
-						{filteredPosts.map((post) => (
+						{filteredPostsAndProducts.map((item) => (
 							<Teaser
-								key={post.id}
-								{...post}
-								links={[
-									{
-										title: "Read",
-										href: `/blog/${post.id}`,
-										icon: RiNewsLine,
-									},
-								]}
+								key={`${item.title}-${item.id}`}
+								{...item}
+								links={item.links}
 							/>
 						))}
 					</ul>
-				)}
-				{filteredPosts.length > 0 && filteredProducts.length > 0 && (
-					<div className="my-4 h-px w-full bg-border" />
-				)}
-				{filteredProducts.length > 0 && (
-					<ul className="flex flex-col gap-24">
-						{filteredProducts.map((product) => (
-							<Teaser key={product.id} {...product} />
-						))}
-					</ul>
+				) : (
+					<div className="flex h-[60svh] items-center justify-center">
+						<p>Whoops! There is nothing tagged with “{tag.title}”</p>
+					</div>
 				)}
 			</section>
 		</>
