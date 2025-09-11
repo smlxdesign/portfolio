@@ -1,0 +1,20 @@
+when:
+  - event: push
+    branch: main
+
+steps:
+  - name: Build
+    image: ubuntu-latest
+    commands:
+      # Install bun
+      - npm install -g bun && bun install
+
+      # Copy .env file
+      - find . -type f -name ".env.example" -exec sh -c 'cp "$1" "${1%.*}"' _ {} \;
+
+      # Check typescript types
+      - bun run typecheck
+
+      # Lint & check formatting
+      - bun run check
+
