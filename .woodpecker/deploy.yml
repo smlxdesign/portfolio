@@ -1,0 +1,18 @@
+when:
+  - event: push
+    branch: main
+
+steps:
+  - name: Build
+    image: ubuntu-latest
+    commands:
+      - npm install -g bun && bun install
+      - |
+        '
+RESEND_API_KEY=${RESEND_API_KEY}
+RESEND_FROM_ADDRESS=${RESEND_FROM_ADDRESS}
+RESEND_TO_ADDRESS=${RESEND_TO_ADDRESS}
+        ' > .env
+      - bun run build
+      - bun run vercel deploy
+
