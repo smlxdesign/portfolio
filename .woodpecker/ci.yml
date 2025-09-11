@@ -2,7 +2,7 @@ when:
   - event: push
 
 steps:
-  - name: Build
+  - name: CI
     image: ubuntu-latest
     commands:
       # Install bun
