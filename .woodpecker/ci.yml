@@ -9,7 +9,7 @@ steps:
       - npm install -g bun && bun install
 
       # Copy .env file
-      - find . -type f -name ".env.example" -exec sh -c 'cp "$1" "${1%.*}"' _ {} \;
+      - find . -type f -name ".env.example" -exec sh -c 'cp "$1" "$${1%.*}"' _ {} \;
 
       # Check typescript types
       - bun run typecheck
