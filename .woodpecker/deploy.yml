@@ -7,12 +7,7 @@ steps:
     image: ubuntu-latest
     commands:
       - npm install -g bun && bun install
-      - |
-        echo "
-RESEND_API_KEY=${RESEND_API_KEY}
-RESEND_FROM_ADDRESS=${RESEND_FROM_ADDRESS}
-RESEND_TO_ADDRESS=${RESEND_TO_ADDRESS}
-        " > .env
+      - echo "RESEND_API_KEY=${RESEND_API_KEY}\nRESEND_FROM_ADDRESS=${RESEND_FROM_ADDRESS\nRESEND_TO_ADDRESS=${RESEND_TO_ADDRESS}" > .env
       - bun run build
       - bun run vercel deploy
 
