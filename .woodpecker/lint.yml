@@ -4,13 +4,14 @@ when:
 steps:
   - name: CI
     image: node:22-alpine
+    environment:
+      SKIP_ENV_VALIDATION: true
     commands:
       # Install bun
       - npm install -g bun && bun install
 
       # Copy .env file
       - find . -type f -name ".env.example" -exec sh -c 'cp "$1" "$${1%.*}"' _ {} \;
-      - str=$(cat .env); printf "$${str//=/=dummy_value}" > .env
 
       # Check typescript types
       - bun run typecheck
