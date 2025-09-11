@@ -7,7 +7,7 @@ steps:
     image: node:22-alpine
     commands:
       - npm install -g bun && bun install
-      - echo "RESEND_API_KEY=${RESEND_API_KEY}\nRESEND_FROM_ADDRESS=${RESEND_FROM_ADDRESS\nRESEND_TO_ADDRESS=${RESEND_TO_ADDRESS}" > .env
+      - printf "RESEND_API_KEY=${RESEND_API_KEY}\nRESEND_FROM_ADDRESS=${RESEND_FROM_ADDRESS\nRESEND_TO_ADDRESS=${RESEND_TO_ADDRESS}" > .env
       - bun run build
       - bun run vercel deploy
 
