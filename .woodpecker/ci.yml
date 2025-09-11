@@ -17,3 +17,5 @@ steps:
       # Lint & check formatting
       - bun run check
 
+      # Build project
+      - bun run build
