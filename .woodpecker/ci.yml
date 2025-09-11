@@ -3,7 +3,7 @@ when:
 
 steps:
   - name: CI
-    image: ubuntu-latest
+    image: node:22-alpine
     commands:
       # Install bun
       - npm install -g bun && bun install
