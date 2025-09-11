@@ -6,11 +6,40 @@ import { Navbar } from "~/components/navbar";
 import { Contact } from "~/components/sections/contact";
 import { Footer } from "~/components/sections/footer";
 
+const description =
+	"Hey! I am Samuel, a passionate Software Engineer that loves to build websites and user interfaces";
+
 export const metadata: Metadata = {
-	title: "SMLX Design",
-	description:
-		"Hey! I am Samuel, a passionate Software Engineer that loves to build websites and user interfaces. During the summer of 2024, I finished the SuperSimpleDev’s Javascript course. After building some simple apps, I realized there was something missing; autocomplete in my IDE. I found out about Typescript and instantly got in love with the language.",
-	icons: [{ rel: "icon", url: "/favicon.ico" }],
+	title: {
+		template: "%s – SMLX Design",
+		default: "SMLX Design",
+	},
+	openGraph: {
+		title: {
+			template: "%s – SMLX Design",
+			default: "SMLX Design",
+		},
+		url: "https://portfolio-smlx-design.vercel.app",
+		description,
+		siteName: "SMLX Design",
+		type: "website",
+	},
+	twitter: {
+		card: "summary",
+		title: {
+			template: "%s – SMLX Design",
+			default: "SMLX Design",
+		},
+		site: "@smlxdesign",
+		creator: "@smlxdesign",
+		description,
+	},
+	robots: {
+		index: true,
+		follow: true,
+	},
+	description,
+	manifest: "/site.webmanifest",
 };
 
 const spaceGrotesk = Space_Grotesk({

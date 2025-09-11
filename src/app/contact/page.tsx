@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import desktopPaperplane from "~/assets/contact-page/desktop-paperplane.svg";
 import desktopQuestionmark from "~/assets/contact-page/desktop-questionmark.svg";
@@ -8,6 +9,18 @@ import { ContactForm } from "~/components/contact-form";
 import { DescriptiveLink } from "~/components/descriptive-link";
 import { Heading } from "~/components/typography/heading";
 import { Title } from "~/components/typography/title";
+
+export const metadata: Metadata = {
+	title: "Contact",
+	openGraph: {
+		title: "Contact",
+		description: "All the ways to reach out to me :P",
+	},
+	twitter: {
+		title: "Contact",
+		description: "All the ways to reach out to me :P",
+	},
+};
 
 export default function Page() {
 	return (

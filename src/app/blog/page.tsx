@@ -1,8 +1,21 @@
 import { RiNewsLine } from "@remixicon/react";
 import { format } from "date-fns";
+import type { Metadata } from "next";
 import { Hero } from "~/components/sections/hero";
 import { Teaser } from "~/components/teaser";
 import { getContentData } from "~/data/content";
+
+export const metadata: Metadata = {
+	title: "Blog",
+	openGraph: {
+		title: "Blog",
+		description: "A list of my blog posts",
+	},
+	twitter: {
+		title: "Blog",
+		description: "A list of my blog posts",
+	},
+};
 
 export default async function Page() {
 	const content = await getContentData();
