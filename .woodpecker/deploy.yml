@@ -10,11 +10,10 @@ steps:
       - npm install -g bun && bun install
 
       # Add env variables to .env
-      - printf "RESEND_API_KEY=${RESEND_API_KEY}\nRESEND_FROM_ADDRESS=${RESEND_FROM_ADDRESS\nRESEND_TO_ADDRESS=${RESEND_TO_ADDRESS}" > .env
+      - printf "RESEND_API_KEY=${RESEND_API_KEY}\nRESEND_FROM_ADDRESS=${RESEND_FROM_ADDRESS}\nRESEND_TO_ADDRESS=${RESEND_TO_ADDRESS}" > .env
 
       # Build project
       - bun run build
 
       # Deploy on vercel
       - bun run vercel deploy
-
