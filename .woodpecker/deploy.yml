@@ -1,14 +1,14 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/woodpecker-ci/woodpecker/main/pipeline/frontend/yaml/linter/schema/schema.json
 
 when:
-  - event: push
-  - event: manual
+  - event: [push, pull_request, manual]
 
 steps:
   - name: Deploy preview
     image: node:22-alpine
     when:
-      - branch:
+      - event: [manual, pull_request]
+        branch:
           exclude: main
     environment:
       VERCEL_ORG_ID: ${VERCEL_ORG_ID}
