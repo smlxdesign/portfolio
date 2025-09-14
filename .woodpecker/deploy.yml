@@ -13,6 +13,7 @@ steps:
     environment:
       VERCEL_ORG_ID: ${VERCEL_ORG_ID}
       VERCEL_PROJECT_ID: ${VERCEL_PROJECT_ID}
+      VERCEL_TOKEN: ${VERCEL_TOKEN}
     commands:
       # Install bun
       - npm install -g bun && bun install
