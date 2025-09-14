@@ -7,6 +7,9 @@ when:
 steps:
   - name: Build
     image: node:22-alpine
+    environment:
+      VERCEL_ORG_ID: ${VERCEL_ORG_ID}
+      VERCEL_PROJECT_ID: ${VERCEL_PROJECT_ID}
     commands:
       # Install bun
       - npm install -g bun && bun install
@@ -18,4 +21,4 @@ steps:
       - bun run build
 
       # Deploy on vercel
-      - bun run vercel deploy
+      - bun run vercel deploy --prebuilt --token=${VERCEL_TOKEN}
