@@ -18,7 +18,7 @@ steps:
       - npm install -g bun && bun install
 
       # Pull variables from Vercel
-      - bun run vercel env pull
+      - bun run vercel env pull --token=${VERCEL_TOKEN}
 
       # Build project
       - bun run build
@@ -38,7 +38,7 @@ steps:
       - npm install -g bun && bun install
 
       # Pull variables from Vercel
-      - bun run vercel env pull
+      - bun run vercel env pull --token=${VERCEL_TOKEN}
 
       # Build project
       - bun run build
