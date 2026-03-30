@@ -43,4 +43,12 @@ export const tags: Record<string, Tag> = {
 		title: "Tanstack Router",
 		icon: RiGuideLine,
 	},
+	"game": {
+		title: "Game",
+		icon: RiGamepadLine,
+	},
+	"godot": {
+		title: "Godot",
+		icon: RiRobot2Line,
+	}
 };
