@@ -2,13 +2,13 @@ import {
 	type RemixiconComponentType,
 	RiArrowLeftRightLine,
 	RiDatabase2Line,
+	RiGamepadLine,
 	RiGlobalLine,
 	RiGuideLine,
 	RiReactjsLine,
+	RiRobot2Line,
 	RiTailwindCssLine,
 	RiWindowLine,
-	RiGamepadLine,
-	RiRobot2Line,
 } from "@remixicon/react";
 
 export interface Tag {
@@ -45,12 +45,12 @@ export const tags: Record<string, Tag> = {
 		title: "Tanstack Router",
 		icon: RiGuideLine,
 	},
-	"game": {
+	game: {
 		title: "Game",
 		icon: RiGamepadLine,
 	},
-	"godot": {
+	godot: {
 		title: "Godot",
 		icon: RiRobot2Line,
-	}
+	},
 };

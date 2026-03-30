@@ -1,13 +1,13 @@
 import {
 	type RemixiconComponentType,
 	RiChatQuoteLine,
+	RiCircleLine,
 	RiCodeLine,
 	RiDraftLine,
 	RiDrinks2Line,
+	RiGamepadLine,
 	RiGlobalLine,
 	RiNewsLine,
-	RiCircleLine,
-	RiGamepadLine,
 } from "@remixicon/react";
 
 export interface Link {
@@ -49,12 +49,9 @@ export const products: Product[] = [
 				title: "Source Code",
 				href: "https://codeberg.org/smlxdesign/pong",
 				icon: RiCodeLine,
-			}
+			},
 		],
-		tags: [
-			"game",
-			"godot",
-		]
+		tags: ["game", "godot"],
 	},
 	{
 		id: "pepsi-vs-coke",
