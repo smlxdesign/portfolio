@@ -7,6 +7,8 @@ import {
 	RiReactjsLine,
 	RiTailwindCssLine,
 	RiWindowLine,
+	RiGamepadLine,
+	RiRobot2Line,
 } from "@remixicon/react";
 
 export interface Tag {

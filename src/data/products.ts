@@ -6,6 +6,8 @@ import {
 	RiDrinks2Line,
 	RiGlobalLine,
 	RiNewsLine,
+	RiCircleLine,
+	RiGamepadLine,
 } from "@remixicon/react";
 
 export interface Link {
