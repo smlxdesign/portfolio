@@ -29,6 +29,32 @@ export interface Product {
 
 export const products: Product[] = [
 	{
+		id: "pong",
+		title: "Pong",
+		description: "Modern recreation of the classic Pong game!",
+		image: {
+			href: "/images/pong.png",
+			alt: "Screenshot of pong gameplay",
+		},
+		icon: RiCircleLine,
+		links: [
+			{
+				title: "Play",
+				href: "https://smlxdesign.itch.io/pong",
+				icon: RiGamepadLine,
+			},
+			{
+				title: "Source Code",
+				href: "https://codeberg.org/smlxdesign/pong",
+				icon: RiCodeLine,
+			}
+		],
+		tags: [
+			"game",
+			"godot",
+		]
+	},
+	{
 		id: "pepsi-vs-coke",
 		title: "Soda Voting App",
 		description:
